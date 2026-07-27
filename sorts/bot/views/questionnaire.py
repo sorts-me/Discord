@@ -47,6 +47,7 @@ class OptionButton(nextcord.ui.Button):
         view: "QuestionnaireView" = self.view
 
         try:
+            await interaction.response.defer()
             with get_db() as db:
                 view.session_service.submit_answer(db, view.session_id, self.question_id, self.option_id)
                 next_q = view.session_service.get_next_question(db, view.session_id)
