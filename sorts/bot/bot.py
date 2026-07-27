@@ -63,25 +63,21 @@ class SortlingBot(commands.Bot):
         env_channels = os.getenv("SORTLING_ALLOWED_CHANNELS", "")
         if env_channels:
             allowed_channels = {int(c.strip()) for c in env_channels.split(",") if c.strip().isdigit()}
-        else:
-            allowed_channels = DEFAULT_ALLOWED_CHANNELS
-
-        # Enforce dedicated channel restriction if triggered by a student in an unapproved channel
-        if interaction.channel_id and interaction.channel_id not in allowed_channels:
-            channel_mentions = " or ".join([f"<#{cid}>" for cid in sorted(allowed_channels)])
-            embed, file = create_sortling_embed(
-                title="Wrong Channel 📍",
-                description=f"Please use {channel_mentions} to run Sortling commands!",
-                is_error=False,
-            )
-            try:
-                if file:
-                    await interaction.response.send_message(embed=embed, ephemeral=True)
-                else:
-                    await interaction.response.send_message(embed=embed, ephemeral=True)
-            except Exception:
-                pass
-            return False
+            if interaction.channel_id and interaction.channel_id not in allowed_channels:
+                channel_mentions = " or ".join([f"<#{cid}>" for cid in sorted(allowed_channels)])
+                embed, file = create_sortling_embed(
+                    title="Wrong Channel",
+                    description=f"Please use {channel_mentions} to run Sortling commands!",
+                    is_error=False,
+                )
+                try:
+                    if file:
+                        await interaction.response.send_message(embed=embed, ephemeral=True)
+                    else:
+                        await interaction.response.send_message(embed=embed, ephemeral=True)
+                except Exception:
+                    pass
+                return False
 
         return True
 
