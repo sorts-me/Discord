@@ -96,35 +96,30 @@ def run_bot():
     import time
     import asyncio
 
-    while True:
+    bot = SortlingBot()
+
+    # Load all Cogs
+    extensions = [
+        "sorts.bot.cogs.about",
+        "sorts.bot.cogs.clubs",
+        "sorts.bot.cogs.feedback",
+        "sorts.bot.cogs.sort",
+        "sorts.bot.cogs.admin",
+        "sorts.bot.cogs.events"
+    ]
+
+    for ext in extensions:
         try:
-            # Explicitly create and set a fresh event loop for each connection attempt
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
-
-            bot = SortlingBot()
-
-            # Load all Cogs
-            extensions = [
-                "sorts.bot.cogs.about",
-                "sorts.bot.cogs.clubs",
-                "sorts.bot.cogs.feedback",
-                "sorts.bot.cogs.sort",
-                "sorts.bot.cogs.admin",
-                "sorts.bot.cogs.events"
-            ]
-
-            for ext in extensions:
-                try:
-                    bot.load_extension(ext)
-                    logger.info(f"Loaded extension: {ext}")
-                except Exception as e:
-                    logger.exception(f"Failed to load extension {ext}: {str(e)}")
-
-            logger.info("Connecting Sortling to Discord Gateway...")
-            bot.run(settings.DISCORD_TOKEN)
-            logger.warning("Bot event loop exited normally. Reconnecting in 5 seconds...")
-            time.sleep(5)
+            bot.load_extension(ext)
+            logger.info(f"Loaded extension: {ext}")
         except Exception as e:
-            logger.error(f"Bot execution exception: {e}. Reconnecting in 5 seconds...", exc_info=True)
-            time.sleep(5)
+            logger.exception(f"Failed to load extension {ext}: {str(e)}")
+
+    try:
+        logger.info("Connecting Sortling to Discord Gateway...")
+        bot.run(settings.DISCORD_TOKEN)
+    except Exception as e:
+        logger.error(f"Bot execution exception: {e}")
+    finally:
+        logger.warning("Bot gateway disconnected. Triggering container restart...")
+        sys.exit(1)
