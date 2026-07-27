@@ -1,0 +1,568 @@
+{
+  "university": {
+    "name": "Mahindra University",
+    "slug": "mahindra",
+    "website": "https://www.mahindrauniversity.edu.in",
+    "primary_color": "#000543",
+    "secondary_color": "#181825",
+    "description": "Mahindra University is a premier private university in Hyderabad, India."
+  },
+  "import_sources": [
+    {
+      "name": "Official Clubs Page (Simulated)",
+      "source_type": "file",
+      "url": "sorts/assets/data/mahindra_clubs.html",
+      "parser_config": {
+        "club_selector": "article.club-card",
+        "name_selector": ".club-name",
+        "summary_selector": ".club-summary",
+        "description_selector": ".club-description",
+        "website_selector": "a.link-website",
+        "discord_selector": "a.link-discord",
+        "instagram_selector": "a.link-instagram",
+        "email_selector": "a.link-email",
+        "image_selector": "img.club-logo",
+        "meeting_frequency_selector": ".freq",
+        "commitment_selector": ".commit"
+      }
+    },
+    {
+      "name": "Official Clubs Page (Live)",
+      "source_type": "website",
+      "url": "https://www.mahindrauniversity.edu.in/student-clubs/",
+      "parser_config": {
+        "club_selector": "div.content-group",
+        "name_selector": ".card-title",
+        "summary_selector": ".card-description",
+        "description_selector": ".card-description"
+      }
+    }
+  ],
+  "traits": [
+    {
+      "slug": "software",
+      "name": "Software & Coding",
+      "description": "Programming, software engineering, and open source development.",
+      "category": "Technology"
+    },
+    {
+      "slug": "hardware",
+      "name": "Hardware & Electronics",
+      "description": "Robotics, microcontrollers, embedded systems, and circuit design.",
+      "category": "Technology"
+    },
+    {
+      "slug": "web_dev",
+      "name": "Web & App Development",
+      "description": "Frontend, backend, mobile apps, and user interface design.",
+      "category": "Technology"
+    },
+    {
+      "slug": "ai_data",
+      "name": "AI & Data Science",
+      "description": "Machine learning, artificial intelligence, and data analytics.",
+      "category": "Technology"
+    },
+    {
+      "slug": "competitive_coding",
+      "name": "Competitive Programming",
+      "description": "Algorithms, data structures, hackathons, and competitive coding.",
+      "category": "Technology"
+    },
+    {
+      "slug": "robotics_automotive",
+      "name": "Robotics & Automotive",
+      "description": "BAJA racing, autonomous vehicles, and mechanical robotics.",
+      "category": "Engineering"
+    },
+    {
+      "slug": "aerospace",
+      "name": "Aerospace & Drones",
+      "description": "Aeronautics, rocketry, drones, and space technology.",
+      "category": "Engineering"
+    },
+    {
+      "slug": "public_speaking",
+      "name": "Public Speaking & Debating",
+      "description": "Public speaking, debating, Model UN, and literary activities.",
+      "category": "Communication"
+    },
+    {
+      "slug": "mun_journalism",
+      "name": "Model UN & Journalism",
+      "description": "Model United Nations, campus journalism, and editorial writing.",
+      "category": "Communication"
+    },
+    {
+      "slug": "entrepreneurship",
+      "name": "Entrepreneurship & Startups",
+      "description": "Business ideation, pitching, incubation, and startup leadership.",
+      "category": "Business"
+    },
+    {
+      "slug": "music",
+      "name": "Music & Jamming",
+      "description": "Vocal, instrumental music, band performances, and jamming.",
+      "category": "Arts"
+    },
+    {
+      "slug": "performing_arts",
+      "name": "Dance & Theatre",
+      "description": "Dance, drama, stage plays, and performing arts.",
+      "category": "Arts"
+    },
+    {
+      "slug": "design_media",
+      "name": "Design & Photography",
+      "description": "Graphic design, photography, filmmaking, and visual media.",
+      "category": "Creative"
+    },
+    {
+      "slug": "gaming_esports",
+      "name": "Gaming & Esports",
+      "description": "Competitive gaming, game development, and esports tournaments.",
+      "category": "Entertainment"
+    },
+    {
+      "slug": "social",
+      "name": "Social & Community",
+      "description": "Community outreach, event organizing, and campus life.",
+      "category": "Social"
+    },
+    {
+      "slug": "creative",
+      "name": "Creative Expression",
+      "description": "Creative writing, art, and artistic projects.",
+      "category": "Creative"
+    },
+    {
+      "slug": "commitment_high",
+      "name": "High Commitment",
+      "description": "Requires heavy weekly involvement (e.g. 5+ hours).",
+      "category": "Workload"
+    },
+    {
+      "slug": "commitment_medium",
+      "name": "Medium Commitment",
+      "description": "Requires moderate weekly involvement (e.g. 2-5 hours).",
+      "category": "Workload"
+    },
+    {
+      "slug": "commitment_low",
+      "name": "Low Commitment",
+      "description": "Requires light involvement (e.g. less than 2 hours weekly).",
+      "category": "Workload"
+    }
+  ],
+  "questions": [
+    {
+      "code": "likes_software",
+      "text": "How do you feel about writing code?",
+      "options": [
+        {
+          "text": "I live in my IDE. Yes.",
+          "trait_modifiers": {
+            "software": 1.0,
+            "social": 0.2
+          }
+        },
+        {
+          "text": "I use AI. IDK.",
+          "trait_modifiers": {
+            "software": 0.6,
+            "ai_data": 0.8,
+            "creative": 0.6
+          }
+        },
+        {
+          "text": "Somewhat. Only when required.",
+          "trait_modifiers": {
+            "software": 0.3
+          }
+        },
+        {
+          "text": "I hate syntax errors. No.",
+          "trait_modifiers": {
+            "software": -1.0
+          }
+        }
+      ]
+    },
+    {
+      "code": "likes_web_dev",
+      "text": "Building websites or mobile applications?",
+      "options": [
+        {
+          "text": "Love frontend/backend dev. Yes.",
+          "trait_modifiers": {
+            "web_dev": 1.0,
+            "software": 0.6
+          }
+        },
+        {
+          "text": "Somewhat interested.",
+          "trait_modifiers": {
+            "web_dev": 0.4
+          }
+        },
+        {
+          "text": "Not my field. No.",
+          "trait_modifiers": {
+            "web_dev": -1.0
+          }
+        }
+      ]
+    },
+    {
+      "code": "likes_ai_data",
+      "text": "Fascinated by Artificial Intelligence and Machine Learning?",
+      "options": [
+        {
+          "text": "Neural nets & data science! Yes.",
+          "trait_modifiers": {
+            "ai_data": 1.0,
+            "software": 0.5
+          }
+        },
+        {
+          "text": "A little curious.",
+          "trait_modifiers": {
+            "ai_data": 0.3
+          }
+        },
+        {
+          "text": "Not interested. No.",
+          "trait_modifiers": {
+            "ai_data": -1.0
+          }
+        }
+      ]
+    },
+    {
+      "code": "likes_competitive_coding",
+      "text": "Competitive programming and 24-hour hackathons?",
+      "options": [
+        {
+          "text": "LeetCode & hackathons! Yes.",
+          "trait_modifiers": {
+            "competitive_coding": 1.0,
+            "software": 0.8
+          }
+        },
+        {
+          "text": "Occasional hackathons.",
+          "trait_modifiers": {
+            "competitive_coding": 0.4
+          }
+        },
+        {
+          "text": "No stress coding please. No.",
+          "trait_modifiers": {
+            "competitive_coding": -1.0
+          }
+        }
+      ]
+    },
+    {
+      "code": "likes_hardware",
+      "text": "Fascinated by robotics or building gadgets?",
+      "options": [
+        {
+          "text": "Give me the hardware! Yes.",
+          "trait_modifiers": {
+            "hardware": 1.0,
+            "software": 0.3
+          }
+        },
+        {
+          "text": "A little bit.",
+          "trait_modifiers": {
+            "hardware": 0.4
+          }
+        },
+        {
+          "text": "Keep electricity away. No.",
+          "trait_modifiers": {
+            "hardware": -1.0
+          }
+        }
+      ]
+    },
+    {
+      "code": "likes_robotics_automotive",
+      "text": "Building racing vehicles, drones, or mechanical bots?",
+      "options": [
+        {
+          "text": "BAJA & bots! Yes.",
+          "trait_modifiers": {
+            "robotics_automotive": 1.0,
+            "hardware": 0.7
+          }
+        },
+        {
+          "text": "Somewhat cool.",
+          "trait_modifiers": {
+            "robotics_automotive": 0.3
+          }
+        },
+        {
+          "text": "Not interested. No.",
+          "trait_modifiers": {
+            "robotics_automotive": -1.0
+          }
+        }
+      ]
+    },
+    {
+      "code": "likes_aerospace",
+      "text": "Things that fly?",
+      "options": [
+        {
+          "text": "Drones and aviation. Yes.",
+          "trait_modifiers": {
+            "aerospace": 1.0,
+            "hardware": 0.3
+          }
+        },
+        {
+          "text": "Not my thing. No.",
+          "trait_modifiers": {
+            "aerospace": -1.0
+          }
+        }
+      ]
+    },
+    {
+      "code": "likes_public_speaking",
+      "text": "Spotlight or silence?",
+      "options": [
+        {
+          "text": "Love debating/speaking. Yes.",
+          "trait_modifiers": {
+            "public_speaking": 1.0,
+            "social": 0.6
+          }
+        },
+        {
+          "text": "Somewhat.",
+          "trait_modifiers": {
+            "public_speaking": 0.4
+          }
+        },
+        {
+          "text": "Let me write in quiet. No.",
+          "trait_modifiers": {
+            "public_speaking": -1.0,
+            "creative": 0.2
+          }
+        }
+      ]
+    },
+    {
+      "code": "likes_mun_journalism",
+      "text": "Model UN conferences, journalism, or editorial writing?",
+      "options": [
+        {
+          "text": "MUN & writing! Yes.",
+          "trait_modifiers": {
+            "mun_journalism": 1.0,
+            "public_speaking": 0.5
+          }
+        },
+        {
+          "text": "A little bit.",
+          "trait_modifiers": {
+            "mun_journalism": 0.3
+          }
+        },
+        {
+          "text": "Not my style. No.",
+          "trait_modifiers": {
+            "mun_journalism": -1.0
+          }
+        }
+      ]
+    },
+    {
+      "code": "likes_business",
+      "text": "Do you want to be a startup CEO?",
+      "options": [
+        {
+          "text": "Pitch decks excite me. Yes.",
+          "trait_modifiers": {
+            "entrepreneurship": 1.0,
+            "social": 0.4
+          }
+        },
+        {
+          "text": "Maybe a little.",
+          "trait_modifiers": {
+            "entrepreneurship": 0.3
+          }
+        },
+        {
+          "text": "I hate networking. No.",
+          "trait_modifiers": {
+            "entrepreneurship": -1.0
+          }
+        }
+      ]
+    },
+    {
+      "code": "likes_music",
+      "text": "Musical jam sessions?",
+      "options": [
+        {
+          "text": "I sing/play. Yes.",
+          "trait_modifiers": {
+            "music": 1.0,
+            "creative": 0.8,
+            "social": 0.4
+          }
+        },
+        {
+          "text": "I just listen.",
+          "trait_modifiers": {
+            "music": 0.2
+          }
+        },
+        {
+          "text": "Pure silence please. No.",
+          "trait_modifiers": {
+            "music": -1.0
+          }
+        }
+      ]
+    },
+    {
+      "code": "likes_performing_arts",
+      "text": "Stage plays, drama, or dance performances?",
+      "options": [
+        {
+          "text": "Dance & theatre! Yes.",
+          "trait_modifiers": {
+            "performing_arts": 1.0,
+            "creative": 0.7,
+            "social": 0.5
+          }
+        },
+        {
+          "text": "I like watching.",
+          "trait_modifiers": {
+            "performing_arts": 0.3
+          }
+        },
+        {
+          "text": "Stage fright. No.",
+          "trait_modifiers": {
+            "performing_arts": -1.0
+          }
+        }
+      ]
+    },
+    {
+      "code": "likes_design_media",
+      "text": "Photography, graphic design, or filmmaking?",
+      "options": [
+        {
+          "text": "Cameras & Photoshop! Yes.",
+          "trait_modifiers": {
+            "design_media": 1.0,
+            "creative": 0.8
+          }
+        },
+        {
+          "text": "Occasional photos.",
+          "trait_modifiers": {
+            "design_media": 0.3
+          }
+        },
+        {
+          "text": "Not artistic. No.",
+          "trait_modifiers": {
+            "design_media": -1.0
+          }
+        }
+      ]
+    },
+    {
+      "code": "likes_gaming_esports",
+      "text": "Esports tournaments or game development?",
+      "options": [
+        {
+          "text": "Gaming & game dev! Yes.",
+          "trait_modifiers": {
+            "gaming_esports": 1.0,
+            "software": 0.3
+          }
+        },
+        {
+          "text": "Casual gaming.",
+          "trait_modifiers": {
+            "gaming_esports": 0.3
+          }
+        },
+        {
+          "text": "Not a gamer. No.",
+          "trait_modifiers": {
+            "gaming_esports": -1.0
+          }
+        }
+      ]
+    },
+    {
+      "code": "likes_social",
+      "text": "Social butterfly or lone wolf?",
+      "options": [
+        {
+          "text": "Love teams and parties.",
+          "trait_modifiers": {
+            "social": 0.8
+          }
+        },
+        {
+          "text": "Healthy mix.",
+          "trait_modifiers": {
+            "social": 0.3
+          }
+        },
+        {
+          "text": "Leave me alone.",
+          "trait_modifiers": {
+            "social": -0.8
+          }
+        }
+      ]
+    },
+    {
+      "code": "commitment_level",
+      "text": "Weekly club commitment?",
+      "options": [
+        {
+          "text": "Intense (5+ hours). Rip free time.",
+          "trait_modifiers": {
+            "commitment_high": 1.0,
+            "commitment_low": -1.0,
+            "commitment_medium": -0.3
+          }
+        },
+        {
+          "text": "Balanced (2-5 hours).",
+          "trait_modifiers": {
+            "commitment_medium": 1.0,
+            "commitment_high": -0.3,
+            "commitment_low": -0.3
+          }
+        },
+        {
+          "text": "Chill (under 2 hours).",
+          "trait_modifiers": {
+            "commitment_low": 1.0,
+            "commitment_high": -1.0,
+            "commitment_medium": -0.3
+          }
+        }
+      ]
+    }
+  ]
+}

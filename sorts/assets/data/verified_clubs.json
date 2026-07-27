@@ -1,0 +1,1903 @@
+[
+  {
+    "name": "Enigma – Computer Science Club",
+    "slug": "enigma-computer-science-club",
+    "aliases": [
+      "enigma",
+      "computer science club",
+      "programming",
+      "software",
+      "hackathon",
+      "coding",
+      "github"
+    ],
+    "category": "Technology",
+    "official": true,
+    "summary": "The Official Coding and Software Development Club of Mahindra University.",
+    "description": "Enigma is dedicated to fostering a strong culture of competitive coding, open-source contribution, and software engineering. We organize weekly programming contests, hackathons, and software development workshops. Whether you are a beginner writing your first Hello World or an experienced developer building complex systems, Enigma provides the resources and community to help you grow.",
+    "meeting_frequency": "Weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 100,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/",
+        "https://enigma-mu.github.io"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {
+      "email": "enigma@mahindrauniversity.edu.in"
+    },
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "programming",
+        "coding",
+        "computer science",
+        "hackathon",
+        "github",
+        "software"
+      ]
+    },
+    "traits": {
+      "software": 1.0,
+      "competitive_coding": 0.9,
+      "web_dev": 0.8,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Entrepreneurship & Innovation Cell (EIC)",
+    "slug": "entrepreneurship-innovation-cell-eic",
+    "aliases": [
+      "eic",
+      "entrepreneurship cell",
+      "startup",
+      "incubation",
+      "innovation",
+      "business"
+    ],
+    "category": "Business",
+    "official": true,
+    "summary": "Fostering entrepreneurial mindsets, startup incubation, and business innovation.",
+    "description": "EIC is the premier student body driving innovation, venture creation, and startup incubation at Mahindra University. We empower student founders with mentorship, investor networking, pitch competitions, and startup workshops to transform bold ideas into scalable businesses.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 100,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/",
+        "https://eicmu.in"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {
+      "email": "eic@mahindrauniversity.edu.in"
+    },
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "startup",
+        "entrepreneurship",
+        "innovation",
+        "business",
+        "incubation"
+      ]
+    },
+    "traits": {
+      "entrepreneurship": 1.0,
+      "social": 0.6,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "TEDx Mahindra University",
+    "slug": "tedx-mahindra-university",
+    "aliases": [
+      "tedx",
+      "tedx mu",
+      "talks",
+      "public speaking",
+      "ideas",
+      "tedxmahindrauniversity"
+    ],
+    "category": "Communication",
+    "official": true,
+    "summary": "Independently organized TED event spreading ideas, inspiration, and impactful talks.",
+    "description": "TEDx Mahindra University brings together visionary thinkers, innovators, artists, and leaders to share ideas worth spreading. Our team curates premier annual conferences, speaker workshops, and thought-provoking storytelling sessions across diverse disciplines.",
+    "meeting_frequency": "Monthly sessions",
+    "commitment": "High commitment",
+    "verification": {
+      "confidence": 100,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/",
+        "https://tedxmahindrauniversity.com"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {
+      "email": "tedx@mahindrauniversity.edu.in"
+    },
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "public speaking",
+        "talks",
+        "ideas",
+        "inspiration",
+        "storytelling"
+      ]
+    },
+    "traits": {
+      "public_speaking": 1.0,
+      "creative": 0.7,
+      "mun_journalism": 0.6,
+      "commitment_high": 1.0
+    }
+  },
+  {
+    "name": "MasterShot Filmmaking Club",
+    "slug": "mastershot-filmmaking-club",
+    "aliases": [
+      "mastershot",
+      "filmmaking",
+      "cinema",
+      "editing",
+      "videography",
+      "camera",
+      "mastershot club"
+    ],
+    "category": "Media",
+    "official": false,
+    "summary": "The Cinema, Videography, and Short Film Production Guild.",
+    "description": "MasterShot is the official cinema and filmmaking guild at Mahindra University. We bring together directors, cinematographers, scriptwriters, video editors, and actors to produce short films, documentaries, campus vlogs, and cinematic visual stories.",
+    "meeting_frequency": "Weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 75,
+      "verified": true,
+      "source": [
+        "https://instagram.com/mastershot_mu",
+        "https://youtube.com/@mastershot_mu"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "filmmaking",
+        "cinema",
+        "editing",
+        "videography",
+        "camera",
+        "media"
+      ]
+    },
+    "traits": {
+      "design_media": 1.0,
+      "creative": 0.9,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Econova",
+    "slug": "econova",
+    "aliases": [
+      "econova",
+      "economics society",
+      "economics club",
+      "finance",
+      "markets",
+      "investment"
+    ],
+    "category": "Business",
+    "official": false,
+    "summary": "The Economics, Market Research, and Finance Guild.",
+    "description": "Econova is the student economics society dedicated to exploring global financial markets, economic policy, market research, and investment analysis. We host economic debriefs, stock simulation games, policy debates, and analytical research projects.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 75,
+      "verified": true,
+      "source": [
+        "https://instagram.com/econova_mu"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "economics",
+        "finance",
+        "markets",
+        "investment",
+        "analytics"
+      ]
+    },
+    "traits": {
+      "entrepreneurship": 0.8,
+      "ai_data": 0.6,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "AI Club",
+    "slug": "ai-club",
+    "aliases": [
+      "ai club",
+      "ai",
+      "artificial intelligence",
+      "ml",
+      "machine learning",
+      "deep learning",
+      "llms"
+    ],
+    "category": "Technology",
+    "official": false,
+    "summary": "The Artificial Intelligence and Machine Learning Student Community.",
+    "description": "AI Club brings together students passionate about artificial intelligence, machine learning, deep learning, computer vision, and LLMs. We conduct hands-on research, model training workshops, guest lectures, and AI hackathons to solve real-world problems.",
+    "meeting_frequency": "Weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 75,
+      "verified": true,
+      "source": [
+        "https://instagram.com/aiclub_mu"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "ai",
+        "machine learning",
+        "deep learning",
+        "llms",
+        "data science"
+      ]
+    },
+    "traits": {
+      "ai_data": 1.0,
+      "software": 0.8,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "C-Cube-E Club",
+    "slug": "c-cube-e-club",
+    "aliases": [
+      "c-cube-e",
+      "ccube",
+      "c cube e",
+      "creative coding",
+      "electronics"
+    ],
+    "category": "Technology",
+    "official": false,
+    "summary": "Creative Coding, Computers, and Electronics Innovation.",
+    "description": "C-Cube-E (Creative Coding & Electronics) focuses on blending computational arts, hardware hacking, physical computing, and interactive electronic installations. We hold tinkering nights, hardware design jams, and creative engineering workshops.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 75,
+      "verified": true,
+      "source": [
+        "https://instagram.com/ccubee_mu"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "creative coding",
+        "electronics",
+        "hardware",
+        "tinkering"
+      ]
+    },
+    "traits": {
+      "hardware": 0.8,
+      "software": 0.8,
+      "creative": 0.7,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Literary Society – The Erudite Club",
+    "slug": "literary-society-the-erudite-club",
+    "aliases": [
+      "Debate & Literary Club",
+      "Erudite",
+      "literary",
+      "debate",
+      "erudite club",
+      "literary society"
+    ],
+    "category": "Communication",
+    "official": true,
+    "summary": "Public Speaking, Debating, Creative Writing, and Literary Arts.",
+    "description": "The Erudite Club is the literary and debate guild at Mahindra University. We hold weekly practice debates, creative writing circles, poetry slams, and literary discussions. Designed to build articulate communication and intellectual discourse.",
+    "meeting_frequency": "Weekly sessions",
+    "commitment": "Low commitment",
+    "verification": {
+      "confidence": 100,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {
+      "email": "erudite@mahindrauniversity.edu.in"
+    },
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "debate",
+        "literary",
+        "public speaking",
+        "writing",
+        "poetry"
+      ]
+    },
+    "traits": {
+      "public_speaking": 1.0,
+      "mun_journalism": 0.8,
+      "creative": 0.6,
+      "commitment_low": 1.0
+    }
+  },
+  {
+    "name": "Outreach & Social Impact Club",
+    "slug": "outreach-social-impact-club",
+    "aliases": [
+      "Community Service Club",
+      "outreach",
+      "community service",
+      "social impact",
+      "outreach club"
+    ],
+    "category": "Social",
+    "official": true,
+    "summary": "Community service, social welfare, volunteering, and impact initiatives.",
+    "description": "Outreach & Social Impact Club drives social responsibility projects, blood donation drives, educational mentoring for underprivileged children, and sustainability campaigns across local communities.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 100,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {
+      "email": "outreach@mahindrauniversity.edu.in"
+    },
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "community service",
+        "volunteering",
+        "social impact",
+        "outreach"
+      ]
+    },
+    "traits": {
+      "social": 1.0,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "SAE BAJA Division",
+    "slug": "sae-baja-division",
+    "aliases": [
+      "BAJA SAE Team",
+      "baja",
+      "baja sae",
+      "sae baja",
+      "baja racing"
+    ],
+    "category": "Engineering",
+    "official": true,
+    "summary": "Off-road vehicle design, fabrication, and national BAJA racing competitions.",
+    "description": "SAE BAJA Division designs, builds, and races all-terrain vehicle (ATV) prototypes for national SAE BAJA competitions. Members get hands-on experience with CAD modeling, chassis fabrication, powertrain tuning, and vehicle dynamics.",
+    "meeting_frequency": "Weekly sessions",
+    "commitment": "High commitment",
+    "verification": {
+      "confidence": 100,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {
+      "email": "saebaja@mahindrauniversity.edu.in"
+    },
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "baja",
+        "sae baja",
+        "baja racing",
+        "automotive",
+        "mechanical"
+      ]
+    },
+    "traits": {
+      "robotics_automotive": 1.0,
+      "hardware": 0.9,
+      "commitment_high": 1.0
+    }
+  },
+  {
+    "name": "Echo – MU Monthly Newspaper",
+    "slug": "echo-mu-monthly-newspaper",
+    "aliases": [
+      "echo",
+      "newspaper",
+      "journalism",
+      "editorial",
+      "campus news"
+    ],
+    "category": "Media",
+    "official": true,
+    "summary": "The Official Campus Newspaper and Journalism Guild.",
+    "description": "Echo is the student-run official campus newspaper of Mahindra University, reporting on campus affairs, student achievements, opinion pieces, culture, and investigative journalism.",
+    "meeting_frequency": "Weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 100,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {
+      "email": "echo@mahindrauniversity.edu.in"
+    },
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "journalism",
+        "newspaper",
+        "editorial",
+        "writing",
+        "media"
+      ]
+    },
+    "traits": {
+      "mun_journalism": 1.0,
+      "creative": 0.7,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Electronics & IoT Club (Lincoln Labs)",
+    "slug": "electronics-iot-club-lincoln-labs",
+    "aliases": [
+      "lincoln labs",
+      "electrowizards",
+      "iot",
+      "electronics",
+      "hardware"
+    ],
+    "category": "Technology",
+    "official": true,
+    "summary": "The Robotics, IoT, and Hardware Engineering Guild.",
+    "description": "Lincoln Labs brings together students interested in microcontrollers, embedded systems, sensors, Arduino, Raspberry Pi, and Internet of Things engineering.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "High commitment",
+    "verification": {
+      "confidence": 100,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {
+      "email": "lincolnlabs@mahindrauniversity.edu.in"
+    },
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "hardware",
+        "electronics",
+        "iot",
+        "robotics",
+        "embedded"
+      ]
+    },
+    "traits": {
+      "hardware": 1.0,
+      "robotics_automotive": 0.8,
+      "commitment_high": 1.0
+    }
+  },
+  {
+    "name": "Model United Nations (MU MUN)",
+    "slug": "model-united-nations-mu-mun",
+    "aliases": [
+      "mu mun",
+      "mun",
+      "model united nations",
+      "diplomacy",
+      "international relations"
+    ],
+    "category": "Communication",
+    "official": true,
+    "summary": "Diplomacy, international debate, resolution writing, and MUN conferences.",
+    "description": "MU MUN trains students in diplomacy, international relations, caucus debate, and UN committee simulation. Members represent Mahindra University at premier national MUN conferences.",
+    "meeting_frequency": "Weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 100,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {
+      "email": "mun@mahindrauniversity.edu.in"
+    },
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "mun",
+        "diplomacy",
+        "public speaking",
+        "international relations"
+      ]
+    },
+    "traits": {
+      "mun_journalism": 1.0,
+      "public_speaking": 0.9,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Qubit Club",
+    "slug": "qubit-club",
+    "aliases": [
+      "qubit",
+      "quantum",
+      "quantum computing",
+      "qiskit",
+      "quantum club"
+    ],
+    "category": "Technology",
+    "official": true,
+    "summary": "Introducing students to quantum computing through workshops, hackathons, and research.",
+    "description": "Qubit Club is dedicated to quantum algorithms, Qiskit, cloud quantum computing platforms, and emerging quantum technology research.",
+    "meeting_frequency": "Weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://qubit-mu.github.io"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {
+      "email": "qubit@mahindrauniversity.edu.in"
+    },
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "quantum",
+        "qiskit",
+        "physics",
+        "math",
+        "software",
+        "research"
+      ]
+    },
+    "traits": {
+      "ai_data": 1.0,
+      "software": 0.9,
+      "competitive_coding": 0.8,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "SAE Aero Division",
+    "slug": "sae-aero-division",
+    "aliases": [
+      "sae aero",
+      "aerospace",
+      "design build fly",
+      "drones"
+    ],
+    "category": "Engineering",
+    "official": true,
+    "summary": "Aircraft design, RC plane fabrication, and Design-Build-Fly competitions.",
+    "description": "SAE Aero Division focuses on aeronautics, aerodynamic testing, unmanned aerial vehicle (UAV) design, and competing in international SAE Aero Design competitions.",
+    "meeting_frequency": "Weekly sessions",
+    "commitment": "High commitment",
+    "verification": {
+      "confidence": 100,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {
+      "email": "saeaero@mahindrauniversity.edu.in"
+    },
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "aerospace",
+        "sae aero",
+        "drones",
+        "aircraft",
+        "engineering"
+      ]
+    },
+    "traits": {
+      "aerospace": 1.0,
+      "hardware": 0.8,
+      "commitment_high": 1.0
+    }
+  },
+  {
+    "name": "Roboverse – Robotics Club",
+    "slug": "roboverse-robotics-club",
+    "aliases": [
+      "roboverse",
+      "robotics",
+      "automation",
+      "bots"
+    ],
+    "category": "Engineering",
+    "official": true,
+    "summary": "Autonomous robots, mechanical automation, and robotics competitions.",
+    "description": "Roboverse builds autonomous ground robots, combat bots, and mechanical automation projects for national robotics expos and hackathons.",
+    "meeting_frequency": "Weekly sessions",
+    "commitment": "High commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "robotics",
+        "roboverse",
+        "automation",
+        "hardware"
+      ]
+    },
+    "traits": {
+      "robotics_automotive": 1.0,
+      "hardware": 0.9,
+      "commitment_high": 1.0
+    }
+  },
+  {
+    "name": "Synolo – Music Club",
+    "slug": "synolo-music-club",
+    "aliases": [
+      "synolo",
+      "music club",
+      "aria",
+      "jam sessions",
+      "band"
+    ],
+    "category": "Arts",
+    "official": true,
+    "summary": "Vocalists, instrumentalists, band jams, and festival live performances.",
+    "description": "Synolo brings together campus musicians, singers, songwriters, and bands to jam, record music, and perform at major university cultural events.",
+    "meeting_frequency": "Weekly sessions",
+    "commitment": "Low commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "music",
+        "band",
+        "jamming",
+        "vocals",
+        "instruments"
+      ]
+    },
+    "traits": {
+      "music": 1.0,
+      "creative": 0.8,
+      "commitment_low": 1.0
+    }
+  },
+  {
+    "name": "Dance Club – 8 Counts",
+    "slug": "dance-club-8-counts",
+    "aliases": [
+      "8 counts",
+      "dance club",
+      "dance",
+      "hiphop",
+      "classical dance"
+    ],
+    "category": "Arts",
+    "official": true,
+    "summary": "Choreography, hip-hop, contemporary, and classical dance performances.",
+    "description": "8 Counts is the dance squad of Mahindra University, hosting dance workshops, flash mobs, and competing in inter-college dance face-offs.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "dance",
+        "8 counts",
+        "choreography",
+        "performing arts"
+      ]
+    },
+    "traits": {
+      "performing_arts": 1.0,
+      "creative": 0.7,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Aether & AIRO Committees",
+    "slug": "aether-airo-committees",
+    "aliases": [
+      "aether",
+      "airo",
+      "aviation",
+      "aerospace"
+    ],
+    "category": "Engineering",
+    "official": true,
+    "summary": "Aeronautics, UAV flight dynamics, and aerospace engineering.",
+    "description": "Aether & AIRO focus on flight simulation, drone assembly, aerodynamics, and aerospace technology research.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "High commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "aether",
+        "aerospace",
+        "aviation",
+        "drones"
+      ]
+    },
+    "traits": {
+      "aerospace": 1.0,
+      "hardware": 0.7,
+      "commitment_high": 1.0
+    }
+  },
+  {
+    "name": "Cyber Security Club (Secret Garden)",
+    "slug": "cyber-security-club-secret-garden",
+    "aliases": [
+      "secret garden",
+      "cybersecurity",
+      "hacking",
+      "ctf"
+    ],
+    "category": "Technology",
+    "official": true,
+    "summary": "Ethical hacking, network security, CTF challenges, and cyber defense.",
+    "description": "Secret Garden explores ethical hacking, vulnerability assessment, penetration testing, cryptography, and competing in Capture The Flag (CTF) tournaments.",
+    "meeting_frequency": "Weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "cybersecurity",
+        "ctf",
+        "hacking",
+        "infosec"
+      ]
+    },
+    "traits": {
+      "software": 0.9,
+      "competitive_coding": 0.8,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "AeiForia – The Sustainability Club",
+    "slug": "aeiforia-the-sustainability-club",
+    "aliases": [
+      "aeiforia",
+      "sustainability",
+      "eco"
+    ],
+    "category": "Social",
+    "official": true,
+    "summary": "Sustainability and green campus initiatives.",
+    "description": "AeiForia – The Sustainability Club is dedicated to sustainability and green campus initiatives. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "aeiforia",
+        "sustainability",
+        "eco"
+      ]
+    },
+    "traits": {
+      "social": 0.8,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "AIESEC at Mahindra University",
+    "slug": "aiesec-at-mahindra-university",
+    "aliases": [
+      "aiesec",
+      "leadership",
+      "interships"
+    ],
+    "category": "Social",
+    "official": true,
+    "summary": "Global youth leadership and exchange programs.",
+    "description": "AIESEC at Mahindra University is dedicated to global youth leadership and exchange programs. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "aiesec",
+        "leadership",
+        "interships"
+      ]
+    },
+    "traits": {
+      "social": 0.8,
+      "entrepreneurship": 0.6,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Ambrosia – The Biology Club",
+    "slug": "ambrosia-the-biology-club",
+    "aliases": [
+      "ambrosia",
+      "biology",
+      "biotech"
+    ],
+    "category": "Science",
+    "official": true,
+    "summary": "Biotechnology and life sciences exploration.",
+    "description": "Ambrosia – The Biology Club is dedicated to biotechnology and life sciences exploration. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "ambrosia",
+        "biology",
+        "biotech"
+      ]
+    },
+    "traits": {
+      "creative": 0.5,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Amartya – The Finance Club",
+    "slug": "amartya-the-finance-club",
+    "aliases": [
+      "amartya",
+      "finance",
+      "economics"
+    ],
+    "category": "Business",
+    "official": true,
+    "summary": "Financial literacy, stock trading, and investment.",
+    "description": "Amartya – The Finance Club is dedicated to financial literacy, stock trading, and investment. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "amartya",
+        "finance",
+        "economics"
+      ]
+    },
+    "traits": {
+      "entrepreneurship": 0.9,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Art Felt Club",
+    "slug": "art-felt-club",
+    "aliases": [
+      "art felt",
+      "art",
+      "fine arts"
+    ],
+    "category": "Creative",
+    "official": true,
+    "summary": "Visual arts, painting, sketching, and design.",
+    "description": "Art Felt Club is dedicated to visual arts, painting, sketching, and design. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "art felt",
+        "art",
+        "fine arts"
+      ]
+    },
+    "traits": {
+      "creative": 1.0,
+      "design_media": 0.7,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "ASCE Student Chapter",
+    "slug": "asce-student-chapter",
+    "aliases": [
+      "asce",
+      "civil engineering"
+    ],
+    "category": "Engineering",
+    "official": true,
+    "summary": "Civil engineering workshops and competitions.",
+    "description": "ASCE Student Chapter is dedicated to civil engineering workshops and competitions. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "asce",
+        "civil engineering"
+      ]
+    },
+    "traits": {
+      "hardware": 0.7,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "AUV Club",
+    "slug": "auv-club",
+    "aliases": [
+      "auv",
+      "underwater vehicle"
+    ],
+    "category": "Engineering",
+    "official": true,
+    "summary": "Autonomous underwater vehicles and robotics.",
+    "description": "AUV Club is dedicated to autonomous underwater vehicles and robotics. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "auv",
+        "underwater vehicle"
+      ]
+    },
+    "traits": {
+      "hardware": 0.9,
+      "robotics_automotive": 0.8,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Celeste – The Astronomy Club",
+    "slug": "celeste-the-astronomy-club",
+    "aliases": [
+      "celeste",
+      "astronomy",
+      "stargazing"
+    ],
+    "category": "Science",
+    "official": true,
+    "summary": "Stargazing, astrophysics, and space science.",
+    "description": "Celeste – The Astronomy Club is dedicated to stargazing, astrophysics, and space science. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "celeste",
+        "astronomy",
+        "stargazing"
+      ]
+    },
+    "traits": {
+      "aerospace": 0.7,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Coding Ninjas MU Chapter",
+    "slug": "coding-ninjas-mu-chapter",
+    "aliases": [
+      "coding ninjas",
+      "dsa"
+    ],
+    "category": "Technology",
+    "official": true,
+    "summary": "Data structures, algorithms, and coding interview prep.",
+    "description": "Coding Ninjas MU Chapter is dedicated to data structures, algorithms, and coding interview prep. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "coding ninjas",
+        "dsa"
+      ]
+    },
+    "traits": {
+      "software": 0.9,
+      "competitive_coding": 0.9,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Evolve Club",
+    "slug": "evolve-club",
+    "aliases": [
+      "evolve",
+      "personal growth"
+    ],
+    "category": "Social",
+    "official": true,
+    "summary": "Self-development and peer mentoring.",
+    "description": "Evolve Club is dedicated to self-development and peer mentoring. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "evolve",
+        "personal growth"
+      ]
+    },
+    "traits": {
+      "social": 0.8,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Finance & Economics Society",
+    "slug": "finance-economics-society",
+    "aliases": [
+      "finance society",
+      "economics society"
+    ],
+    "category": "Business",
+    "official": true,
+    "summary": "Economic research and financial market analysis.",
+    "description": "Finance & Economics Society is dedicated to economic research and financial market analysis. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "finance society",
+        "economics society"
+      ]
+    },
+    "traits": {
+      "entrepreneurship": 0.8,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Gas Monkeys Racing",
+    "slug": "gas-monkeys-racing",
+    "aliases": [
+      "gas monkeys",
+      "racing",
+      "gokart"
+    ],
+    "category": "Engineering",
+    "official": true,
+    "summary": "Go-karting and automotive fabrication.",
+    "description": "Gas Monkeys Racing is dedicated to go-karting and automotive fabrication. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "gas monkeys",
+        "racing",
+        "gokart"
+      ]
+    },
+    "traits": {
+      "robotics_automotive": 1.0,
+      "hardware": 0.8,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Gender & Inclusion Forum – MU Athena",
+    "slug": "gender-inclusion-forum-mu-athena",
+    "aliases": [
+      "athena",
+      "inclusion",
+      "gender equality"
+    ],
+    "category": "Social",
+    "official": true,
+    "summary": "Promoting inclusion, diversity, and equality on campus.",
+    "description": "Gender & Inclusion Forum – MU Athena is dedicated to promoting inclusion, diversity, and equality on campus. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "athena",
+        "inclusion",
+        "gender equality"
+      ]
+    },
+    "traits": {
+      "social": 0.9,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Haven – Animal Welfare Club",
+    "slug": "haven-animal-welfare-club",
+    "aliases": [
+      "haven",
+      "animal welfare",
+      "pets"
+    ],
+    "category": "Social",
+    "official": true,
+    "summary": "Campus animal care, feeding drives, and rescue.",
+    "description": "Haven – Animal Welfare Club is dedicated to campus animal care, feeding drives, and rescue. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "haven",
+        "animal welfare",
+        "pets"
+      ]
+    },
+    "traits": {
+      "social": 0.9,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "ISB Technology Entrepreneurship Programme",
+    "slug": "isb-technology-entrepreneurship-programme",
+    "aliases": [
+      "isb tep",
+      "isb"
+    ],
+    "category": "Business",
+    "official": true,
+    "summary": "Tech entrepreneurship in collaboration with ISB.",
+    "description": "ISB Technology Entrepreneurship Programme is dedicated to tech entrepreneurship in collaboration with isb. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "isb tep",
+        "isb"
+      ]
+    },
+    "traits": {
+      "entrepreneurship": 1.0,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Kalakriti – Cultural Club",
+    "slug": "kalakriti-cultural-club",
+    "aliases": [
+      "kalakriti",
+      "cultural club"
+    ],
+    "category": "Creative",
+    "official": true,
+    "summary": "Cultural celebrations and traditional arts.",
+    "description": "Kalakriti – Cultural Club is dedicated to cultural celebrations and traditional arts. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "kalakriti",
+        "cultural club"
+      ]
+    },
+    "traits": {
+      "creative": 0.9,
+      "social": 0.7,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Management Consulting Group (MCG)",
+    "slug": "management-consulting-group-mcg",
+    "aliases": [
+      "mcg",
+      "consulting"
+    ],
+    "category": "Business",
+    "official": true,
+    "summary": "Case studies, business strategy, and consulting.",
+    "description": "Management Consulting Group (MCG) is dedicated to case studies, business strategy, and consulting. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "mcg",
+        "consulting"
+      ]
+    },
+    "traits": {
+      "entrepreneurship": 0.9,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Marketing Club – Vipanan",
+    "slug": "marketing-club-vipanan",
+    "aliases": [
+      "vipanan",
+      "marketing"
+    ],
+    "category": "Business",
+    "official": true,
+    "summary": "Brand marketing, social media strategy, and ad campaigns.",
+    "description": "Marketing Club – Vipanan is dedicated to brand marketing, social media strategy, and ad campaigns. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "vipanan",
+        "marketing"
+      ]
+    },
+    "traits": {
+      "entrepreneurship": 0.8,
+      "design_media": 0.6,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Math Club",
+    "slug": "math-club",
+    "aliases": [
+      "math club",
+      "mathematics"
+    ],
+    "category": "Science",
+    "official": true,
+    "summary": "Mathematical puzzles, problem solving, and theory.",
+    "description": "Math Club is dedicated to mathematical puzzles, problem solving, and theory. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "math club",
+        "mathematics"
+      ]
+    },
+    "traits": {
+      "competitive_coding": 0.6,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Media Club",
+    "slug": "media-club",
+    "aliases": [
+      "media club",
+      "photography"
+    ],
+    "category": "Media",
+    "official": true,
+    "summary": "Campus photography and media coverage.",
+    "description": "Media Club is dedicated to campus photography and media coverage. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "media club",
+        "photography"
+      ]
+    },
+    "traits": {
+      "design_media": 0.9,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "NSS Unit (National Service Scheme)",
+    "slug": "nss-unit-national-service-scheme",
+    "aliases": [
+      "nss",
+      "volunteering"
+    ],
+    "category": "Social",
+    "official": true,
+    "summary": "Social service, blood donation, and rural outreach.",
+    "description": "NSS Unit (National Service Scheme) is dedicated to social service, blood donation, and rural outreach. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "nss",
+        "volunteering"
+      ]
+    },
+    "traits": {
+      "social": 1.0,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Orion Club – Aeronautics Society",
+    "slug": "orion-club-aeronautics-society",
+    "aliases": [
+      "orion",
+      "aeronautics"
+    ],
+    "category": "Engineering",
+    "official": true,
+    "summary": "Rocketry, drone mechanics, and aeronautical engineering.",
+    "description": "Orion Club – Aeronautics Society is dedicated to rocketry, drone mechanics, and aeronautical engineering. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "orion",
+        "aeronautics"
+      ]
+    },
+    "traits": {
+      "aerospace": 1.0,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Palaestro – Fitness Club",
+    "slug": "palaestro-fitness-club",
+    "aliases": [
+      "palaestro",
+      "fitness",
+      "gym"
+    ],
+    "category": "Entertainment",
+    "official": true,
+    "summary": "Calisthenics, gym workouts, and sports fitness.",
+    "description": "Palaestro – Fitness Club is dedicated to calisthenics, gym workouts, and sports fitness. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "palaestro",
+        "fitness",
+        "gym"
+      ]
+    },
+    "traits": {
+      "social": 0.6,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Power Speakers Club",
+    "slug": "power-speakers-club",
+    "aliases": [
+      "power speakers",
+      "public speaking"
+    ],
+    "category": "Communication",
+    "official": true,
+    "summary": "Public speaking confidence and Toastmasters practice.",
+    "description": "Power Speakers Club is dedicated to public speaking confidence and toastmasters practice. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "power speakers",
+        "public speaking"
+      ]
+    },
+    "traits": {
+      "public_speaking": 1.0,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Secret Garden – Cybersecurity Club",
+    "slug": "secret-garden-cybersecurity-club",
+    "aliases": [
+      "secret garden",
+      "cybersecurity"
+    ],
+    "category": "Technology",
+    "official": true,
+    "summary": "Network safety and hacking challenges.",
+    "description": "Secret Garden – Cybersecurity Club is dedicated to network safety and hacking challenges. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "secret garden",
+        "cybersecurity"
+      ]
+    },
+    "traits": {
+      "software": 0.8,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "SPIC MACAY – MU Chapter",
+    "slug": "spic-macay-mu-chapter",
+    "aliases": [
+      "spic macay",
+      "classical arts"
+    ],
+    "category": "Arts",
+    "official": true,
+    "summary": "Indian classical music, dance, and cultural heritage.",
+    "description": "SPIC MACAY – MU Chapter is dedicated to indian classical music, dance, and cultural heritage. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "spic macay",
+        "classical arts"
+      ]
+    },
+    "traits": {
+      "music": 0.7,
+      "performing_arts": 0.7,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "SRELP – Society for Research in Environmental Law & Policy",
+    "slug": "srelp-society-for-research-in-environmental-law-policy",
+    "aliases": [
+      "srelp",
+      "environmental law"
+    ],
+    "category": "Science",
+    "official": true,
+    "summary": "Legal research on environmental policy and sustainability.",
+    "description": "SRELP – Society for Research in Environmental Law & Policy is dedicated to legal research on environmental policy and sustainability. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "srelp",
+        "environmental law"
+      ]
+    },
+    "traits": {
+      "mun_journalism": 0.7,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "The Fashion Club – Voguenze",
+    "slug": "the-fashion-club-voguenze",
+    "aliases": [
+      "voguenze",
+      "fashion club"
+    ],
+    "category": "Arts",
+    "official": true,
+    "summary": "Fashion shows, styling, and ramp walks.",
+    "description": "The Fashion Club – Voguenze is dedicated to fashion shows, styling, and ramp walks. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "voguenze",
+        "fashion club"
+      ]
+    },
+    "traits": {
+      "creative": 0.8,
+      "design_media": 0.6,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "The Yoga Club",
+    "slug": "the-yoga-club",
+    "aliases": [
+      "yoga",
+      "wellness"
+    ],
+    "category": "Entertainment",
+    "official": true,
+    "summary": "Yoga, meditation, and stress management.",
+    "description": "The Yoga Club is dedicated to yoga, meditation, and stress management. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "yoga",
+        "wellness"
+      ]
+    },
+    "traits": {
+      "social": 0.5,
+      "commitment_medium": 1.0
+    }
+  },
+  {
+    "name": "Zenith Science Club",
+    "slug": "zenith-science-club",
+    "aliases": [
+      "zenith",
+      "science club"
+    ],
+    "category": "Science",
+    "official": true,
+    "summary": "Physics experiments, science fairs, and tech talk.",
+    "description": "Zenith Science Club is dedicated to physics experiments, science fairs, and tech talk. We organize regular student activities, collaborative projects, and skill-building sessions.",
+    "meeting_frequency": "Bi-weekly sessions",
+    "commitment": "Medium commitment",
+    "verification": {
+      "confidence": 95,
+      "verified": true,
+      "source": [
+        "https://www.mahindrauniversity.edu.in/student-clubs/"
+      ],
+      "lastVerified": "2026-07-19"
+    },
+    "socials": {},
+    "metadata": {
+      "status": "active",
+      "tags": [
+        "zenith",
+        "science club"
+      ]
+    },
+    "traits": {
+      "ai_data": 0.5,
+      "commitment_medium": 1.0
+    }
+  }
+]
