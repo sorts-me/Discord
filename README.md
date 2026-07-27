@@ -1,13 +1,13 @@
-# sorts.me (Sortling) <img src="Sortling%20Mascot/Icon_Neutral.png" align="right" width="48" height="48">
+# Sortling-MU <img src="Sortling%20Mascot/Icon_Neutral.png" align="right" width="48" height="48">
 
-### Find your clubs. Campus club matching for university Discord servers.
+### Campus club matching & event guide for Mahindra University Discord server.
 
 [![Python](https://img.shields.io/badge/Python-3.12%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![nextcord](https://img.shields.io/badge/nextcord-Discord%20Bot-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://github.com/nextcord/nextcord)
 [![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-ORM-red?style=for-the-badge&logo=databricks&logoColor=white)](https://sqlalchemy.org)
 [![Render Ready](https://img.shields.io/badge/Render-Ready%20to%20Deploy-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://render.com)
 
-> **Students join campus clubs without knowing what exists. sorts.me fixes that by asking a short set of targeted questions and matching each student to the clubs that actually fit them.**
+> **Sortling-MU** is the dedicated Mahindra University Discord Bot. Students answer a short targeted questionnaire to receive personalized club recommendations, search verified campus listings, and explore upcoming hackathons.
 
 **sorts.me** is a multi-tenant Discord bot that brings a decision-tree questionnaire to university servers. Instead of reading through long static directories, students answer a short set of questions and receive three ranked, personalized club recommendations with plain-language explanations.
 
