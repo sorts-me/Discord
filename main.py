@@ -175,25 +175,8 @@ def main():
     start_health_server()  # Open port before anything else so Render health check passes
     bootstrap()
     
-    # ── Start Reddit Bot Listener ─────────────────────────────────────────────
-    try:
-        from sorts.reddit.listener import get_reddit_listener
-        reddit_listener = get_reddit_listener()
-        if reddit_listener.is_configured():
-            logger.info("Starting Sortling Reddit Bot Listener...")
-            reddit_listener.start_polling()
-    from sorts.config import settings
-    if settings.DISCORD_TOKEN and os.getenv("ENABLE_DISCORD", "false").lower() == "true":
-        logger.info("Starting Sortling Discord Bot...")
-        run_bot()
-    else:
-        logger.info("Discord support is discontinued. Running HTTP API & Reddit Bot Listener for Mahindra University.")
-        import time
-        try:
-            while True:
-                time.sleep(3600)
-        except KeyboardInterrupt:
-            logger.info("Shutting down Sortling server...")
+    logger.info("Starting Sortling Discord Bot for Mahindra University...")
+    run_bot()
 
 if __name__ == "__main__":
     main()
