@@ -19,6 +19,7 @@ class SortCog(commands.Cog):
         user_id = str(interaction.user.id)
 
         try:
+            await interaction.response.defer()
             with get_db() as db:
                 univ = get_guild_university(db, interaction.guild_id)
                 if not univ:

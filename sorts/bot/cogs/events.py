@@ -37,6 +37,7 @@ class EventsCog(commands.Cog):
     ):
         """Displays a list of upcoming campus events and hackathons."""
         try:
+            await interaction.response.defer()
             with get_db() as db:
                 univ = get_guild_university(db, interaction.guild_id)
                 if not univ:
@@ -108,6 +109,7 @@ class EventsCog(commands.Cog):
     ):
         """Displays full Sortling-Native details for a specific event."""
         try:
+            await interaction.response.defer()
             with get_db() as db:
                 univ = get_guild_university(db, interaction.guild_id)
                 if not univ:
