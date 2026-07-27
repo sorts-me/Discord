@@ -1,0 +1,391 @@
+{
+  "traits": [
+    {
+      "slug": "software",
+      "name": "Software & Coding",
+      "description": "Programming, software engineering, and open source development.",
+      "category": "Technology"
+    },
+    {
+      "slug": "hardware",
+      "name": "Hardware & Electronics",
+      "description": "Robotics, microcontrollers, embedded systems, and circuit design.",
+      "category": "Technology"
+    },
+    {
+      "slug": "web_dev",
+      "name": "Web & App Development",
+      "description": "Frontend, backend, mobile apps, and user interface design.",
+      "category": "Technology"
+    },
+    {
+      "slug": "ai_data",
+      "name": "AI & Data Science",
+      "description": "Machine learning, artificial intelligence, and data analytics.",
+      "category": "Technology"
+    },
+    {
+      "slug": "competitive_coding",
+      "name": "Competitive Programming",
+      "description": "Algorithms, data structures, hackathons, and competitive coding.",
+      "category": "Technology"
+    },
+    {
+      "slug": "robotics_automotive",
+      "name": "Robotics & Automotive",
+      "description": "Autonomous vehicles, mechanical robotics, and motorsport.",
+      "category": "Engineering"
+    },
+    {
+      "slug": "aerospace",
+      "name": "Aerospace & Drones",
+      "description": "Aeronautics, rocketry, drones, and space technology.",
+      "category": "Engineering"
+    },
+    {
+      "slug": "public_speaking",
+      "name": "Public Speaking & Debating",
+      "description": "Public speaking, debating, Model UN, and literary activities.",
+      "category": "Communication"
+    },
+    {
+      "slug": "mun_journalism",
+      "name": "Model UN & Journalism",
+      "description": "Model United Nations, campus journalism, and editorial writing.",
+      "category": "Communication"
+    },
+    {
+      "slug": "entrepreneurship",
+      "name": "Entrepreneurship & Startups",
+      "description": "Business ideation, pitching, incubation, and startup leadership.",
+      "category": "Business"
+    },
+    {
+      "slug": "music",
+      "name": "Music & Jamming",
+      "description": "Vocal, instrumental music, band performances, and jamming.",
+      "category": "Arts"
+    },
+    {
+      "slug": "performing_arts",
+      "name": "Dance & Theatre",
+      "description": "Dance, drama, stage plays, and performing arts.",
+      "category": "Arts"
+    },
+    {
+      "slug": "design_media",
+      "name": "Design & Photography",
+      "description": "Graphic design, photography, filmmaking, and visual media.",
+      "category": "Creative"
+    },
+    {
+      "slug": "gaming_esports",
+      "name": "Gaming & Esports",
+      "description": "Competitive gaming, game development, and esports tournaments.",
+      "category": "Entertainment"
+    },
+    {
+      "slug": "social",
+      "name": "Social & Community",
+      "description": "Community outreach, event organizing, and campus life.",
+      "category": "Social"
+    },
+    {
+      "slug": "creative",
+      "name": "Creative Expression",
+      "description": "Creative writing, art, and artistic projects.",
+      "category": "Creative"
+    },
+    {
+      "slug": "commitment_high",
+      "name": "High Commitment",
+      "description": "Requires heavy weekly involvement (e.g. 5+ hours).",
+      "category": "Workload"
+    },
+    {
+      "slug": "commitment_medium",
+      "name": "Medium Commitment",
+      "description": "Requires moderate weekly involvement (e.g. 2-5 hours).",
+      "category": "Workload"
+    },
+    {
+      "slug": "commitment_low",
+      "name": "Low Commitment",
+      "description": "Requires light involvement (e.g. less than 2 hours weekly).",
+      "category": "Workload"
+    }
+  ],
+  "questions": [
+    {
+      "code": "primary_interest",
+      "text": "What pulls you in the most?",
+      "options": [
+        {
+          "text": "Building tech — software, AI, or hardware.",
+          "trait_modifiers": {
+            "software": 0.9,
+            "ai_data": 0.7,
+            "hardware": 0.6
+          }
+        },
+        {
+          "text": "Performing — music, dance, theatre, or sports.",
+          "trait_modifiers": {
+            "performing_arts": 1.0,
+            "music": 0.8,
+            "social": 0.5
+          }
+        },
+        {
+          "text": "Creating — design, writing, film, or photography.",
+          "trait_modifiers": {
+            "design_media": 1.0,
+            "creative": 0.9,
+            "mun_journalism": 0.4
+          }
+        },
+        {
+          "text": "Leading — business, events, community, or social impact.",
+          "trait_modifiers": {
+            "entrepreneurship": 1.0,
+            "social": 0.8,
+            "public_speaking": 0.6
+          }
+        }
+      ]
+    },
+    {
+      "code": "tech_comfort",
+      "text": "How comfortable are you writing code?",
+      "options": [
+        {
+          "text": "Very — it's basically my hobby.",
+          "trait_modifiers": {
+            "software": 1.0,
+            "competitive_coding": 0.7,
+            "web_dev": 0.6
+          }
+        },
+        {
+          "text": "Somewhat — I use it when needed.",
+          "trait_modifiers": {
+            "software": 0.4,
+            "ai_data": 0.5,
+            "web_dev": 0.4
+          }
+        },
+        {
+          "text": "Not really — I prefer other things.",
+          "trait_modifiers": {
+            "software": -0.5,
+            "performing_arts": 0.3,
+            "social": 0.3
+          }
+        }
+      ]
+    },
+    {
+      "code": "stage_comfort",
+      "text": "Does performing or speaking in front of people energize you?",
+      "options": [
+        {
+          "text": "Yes — I love the spotlight.",
+          "trait_modifiers": {
+            "performing_arts": 1.0,
+            "public_speaking": 1.0,
+            "music": 0.5
+          }
+        },
+        {
+          "text": "Sometimes — depends on the context.",
+          "trait_modifiers": {
+            "public_speaking": 0.4,
+            "social": 0.4,
+            "mun_journalism": 0.5
+          }
+        },
+        {
+          "text": "Not really — I prefer working behind the scenes.",
+          "trait_modifiers": {
+            "performing_arts": -0.5,
+            "design_media": 0.5,
+            "software": 0.3
+          }
+        }
+      ]
+    },
+    {
+      "code": "build_things",
+      "text": "Do you enjoy building or fixing physical things?",
+      "options": [
+        {
+          "text": "Yes — robots, circuits, engines, that kind of thing.",
+          "trait_modifiers": {
+            "hardware": 1.0,
+            "robotics_automotive": 1.0,
+            "aerospace": 0.7
+          }
+        },
+        {
+          "text": "A bit — more into digital products than physical ones.",
+          "trait_modifiers": {
+            "hardware": 0.2,
+            "software": 0.5,
+            "web_dev": 0.5
+          }
+        },
+        {
+          "text": "Not my thing — I'd rather create or connect.",
+          "trait_modifiers": {
+            "hardware": -0.3,
+            "social": 0.4,
+            "creative": 0.4
+          }
+        }
+      ]
+    },
+    {
+      "code": "team_style",
+      "text": "How do you prefer to work?",
+      "options": [
+        {
+          "text": "In a big, active team — energy feeds me.",
+          "trait_modifiers": {
+            "social": 1.0,
+            "performing_arts": 0.5,
+            "entrepreneurship": 0.5
+          }
+        },
+        {
+          "text": "Small focused group — quality over quantity.",
+          "trait_modifiers": {
+            "software": 0.5,
+            "competitive_coding": 0.6,
+            "design_media": 0.5
+          }
+        },
+        {
+          "text": "Mostly solo, with occasional collaboration.",
+          "trait_modifiers": {
+            "creative": 0.8,
+            "design_media": 0.6,
+            "software": 0.4
+          }
+        }
+      ]
+    },
+    {
+      "code": "impact_goal",
+      "text": "What kind of impact do you want from a club?",
+      "options": [
+        {
+          "text": "Win competitions or represent the university.",
+          "trait_modifiers": {
+            "competitive_coding": 0.9,
+            "robotics_automotive": 0.8,
+            "public_speaking": 0.7,
+            "commitment_high": 0.8
+          }
+        },
+        {
+          "text": "Build real skills and a strong portfolio.",
+          "trait_modifiers": {
+            "software": 0.7,
+            "design_media": 0.7,
+            "entrepreneurship": 0.7,
+            "commitment_medium": 0.7
+          }
+        },
+        {
+          "text": "Meet interesting people and have a good time.",
+          "trait_modifiers": {
+            "social": 1.0,
+            "music": 0.6,
+            "gaming_esports": 0.6,
+            "commitment_low": 0.8
+          }
+        },
+        {
+          "text": "Give back — volunteer or community work.",
+          "trait_modifiers": {
+            "social": 0.9,
+            "mun_journalism": 0.5,
+            "commitment_medium": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "code": "time_commitment",
+      "text": "How much time can you realistically give per week?",
+      "options": [
+        {
+          "text": "5+ hours — I want to go all in.",
+          "trait_modifiers": {
+            "commitment_high": 1.0,
+            "commitment_medium": -0.3,
+            "commitment_low": -0.7
+          }
+        },
+        {
+          "text": "2-5 hours — solid but balanced.",
+          "trait_modifiers": {
+            "commitment_medium": 1.0,
+            "commitment_high": -0.3,
+            "commitment_low": -0.3
+          }
+        },
+        {
+          "text": "Under 2 hours — just dipping my toes.",
+          "trait_modifiers": {
+            "commitment_low": 1.0,
+            "commitment_medium": -0.3,
+            "commitment_high": -0.7
+          }
+        }
+      ]
+    },
+    {
+      "code": "avoid_type",
+      "text": "What would you least enjoy?",
+      "options": [
+        {
+          "text": "Staring at code all day.",
+          "trait_modifiers": {
+            "software": -0.8,
+            "competitive_coding": -0.7,
+            "performing_arts": 0.4,
+            "social": 0.3
+          }
+        },
+        {
+          "text": "Performing or public speaking.",
+          "trait_modifiers": {
+            "performing_arts": -0.8,
+            "public_speaking": -0.7,
+            "software": 0.3,
+            "design_media": 0.3
+          }
+        },
+        {
+          "text": "Heavy physical or engineering work.",
+          "trait_modifiers": {
+            "hardware": -0.8,
+            "robotics_automotive": -0.7,
+            "creative": 0.3,
+            "social": 0.3
+          }
+        },
+        {
+          "text": "All-day meetings and admin.",
+          "trait_modifiers": {
+            "entrepreneurship": -0.4,
+            "social": -0.3,
+            "software": 0.3,
+            "creative": 0.3
+          }
+        }
+      ]
+    }
+  ]
+}
