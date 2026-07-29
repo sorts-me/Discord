@@ -66,13 +66,14 @@ class VarianceQuestionSelector(IQuestionSelector):
             scores.append(max(0.0, min(1.0, overall_score)))
         return scores
 
-    def _calculate_entropy(self, scores: List[float]) -> float:
-        """Applies softmax to scores and calculates Shannon Entropy."""
+    def _calculate_entropy(self, scores: List[float], dynamic_temp: Optional[float] = None) -> float:
+        """Applies softmax to scores and calculates Shannon Entropy using dynamic temperature scaling."""
         if not scores:
             return 0.0
             
+        temp = dynamic_temp if dynamic_temp is not None else self.temperature
         max_score = max(scores)
-        exp_scores = [math.exp(self.temperature * (s - max_score)) for s in scores]
+        exp_scores = [math.exp(temp * (s - max_score)) for s in scores]
         sum_exp = sum(exp_scores)
         
         probabilities = [e / (sum_exp + 1e-9) for e in exp_scores]
@@ -94,6 +95,10 @@ class VarianceQuestionSelector(IQuestionSelector):
         if not candidate_clubs:
             return unasked_questions[0]
 
+        # Dynamically sharpen softmax distribution as quiz session progresses
+        num_answered = len(current_session_traits)
+        dynamic_temp = self.temperature + (1.5 * num_answered)
+
         best_question = None
         best_expected_entropy = float("inf")
 
@@ -110,7 +115,7 @@ class VarianceQuestionSelector(IQuestionSelector):
                 sim_scores.sort(reverse=True)
                 top_sim_scores = sim_scores[:self.top_k_cutoff]
                 
-                expected_entropy += self._calculate_entropy(top_sim_scores)
+                expected_entropy += self._calculate_entropy(top_sim_scores, dynamic_temp=dynamic_temp)
                 
             avg_expected_entropy = expected_entropy / len(q.options) if q.options else 0.0
             

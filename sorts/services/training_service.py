@@ -15,6 +15,16 @@ class TrainingService:
 
     LEARNING_RATE = 0.05
 
+    def _calculate_decayed_lr(self, db: Session, club_id: int) -> float:
+        """Calculates a decayed learning rate based on historical feedback count to stabilize established weights."""
+        feedback_count = (
+            db.query(db_models.Feedback)
+            .join(db_models.Recommendation)
+            .filter(db_models.Recommendation.club_id == club_id)
+            .count()
+        )
+        return round(self.LEARNING_RATE / (1.0 + 0.1 * feedback_count), 4)
+
     def process_feedback_deltas(
         self,
         db: Session,
@@ -40,7 +50,9 @@ class TrainingService:
         adjusted_count = 0
 
         for club in clubs:
-            # 1. Reinforce added interests (+0.05 gradient)
+            lr = self._calculate_decayed_lr(db, club.id)
+
+            # 1. Reinforce added interests with decayed learning rate
             for slug in added_interests:
                 if slug in trait_map:
                     t_obj = trait_map[slug]
@@ -50,19 +62,19 @@ class TrainingService:
                         db.add(ct)
                     
                     old_w = ct.weight
-                    ct.weight = min(1.0, round(ct.weight + self.LEARNING_RATE, 3))
-                    logger.info(f"[SELF_TRAINING] Reinforced club '{club.name}' trait '{slug}': {old_w:.2f} -> {ct.weight:.2f}")
+                    ct.weight = min(1.0, round(ct.weight + lr, 3))
+                    logger.info(f"[SELF_TRAINING] Reinforced club '{club.name}' trait '{slug}' (lr={lr:.4f}): {old_w:.2f} -> {ct.weight:.2f}")
                     adjusted_count += 1
 
-            # 2. Decay removed interests (-0.05 gradient)
+            # 2. Decay removed interests with decayed learning rate
             for slug in removed_interests:
                 if slug in trait_map:
                     t_obj = trait_map[slug]
                     ct = db.query(db_models.ClubTrait).filter_by(club_id=club.id, trait_id=t_obj.id).first()
                     if ct:
                         old_w = ct.weight
-                        ct.weight = max(0.0, round(ct.weight - self.LEARNING_RATE, 3))
-                        logger.info(f"[SELF_TRAINING] Decayed club '{club.name}' trait '{slug}': {old_w:.2f} -> {ct.weight:.2f}")
+                        ct.weight = max(0.0, round(ct.weight - lr, 3))
+                        logger.info(f"[SELF_TRAINING] Decayed club '{club.name}' trait '{slug}' (lr={lr:.4f}): {old_w:.2f} -> {ct.weight:.2f}")
                         adjusted_count += 1
 
         db.commit()
