@@ -36,7 +36,6 @@ class EventsCog(commands.Cog):
         ),
     ):
         """Displays a list of upcoming campus events and hackathons."""
-        await interaction.response.defer()
         try:
             with get_db() as db:
                 univ = get_guild_university(db, interaction.guild_id)
@@ -108,7 +107,6 @@ class EventsCog(commands.Cog):
         name: str = nextcord.SlashOption(description="Name or keyword of the hackathon or event"),
     ):
         """Displays full Sortling-Native details for a specific event."""
-        await interaction.response.defer()
         try:
             with get_db() as db:
                 univ = get_guild_university(db, interaction.guild_id)

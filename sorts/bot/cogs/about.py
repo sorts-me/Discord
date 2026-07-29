@@ -11,7 +11,6 @@ class AboutCog(commands.Cog):
     @nextcord.slash_command(name="about", description="Learn about Sortling and how it works.")
     async def about(self, interaction: nextcord.Interaction):
         """Displays the university profile and a short explanation of Sortling."""
-        await interaction.response.defer()
         try:
             with get_db() as db:
                 univ = get_guild_university(db, interaction.guild_id)

@@ -28,7 +28,6 @@ class FeedbackCog(commands.Cog):
         ),
     ):
         """Records feedback tied to the user's most recent session or general feedback."""
-        await interaction.response.defer(ephemeral=True)
         user_id = str(interaction.user.id)
         user_name = str(interaction.user)
 

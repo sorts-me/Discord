@@ -16,7 +16,6 @@ class SortCog(commands.Cog):
     @nextcord.slash_command(name="sort", description="Find the clubs that match who you are.")
     async def sort(self, interaction: nextcord.Interaction):
         """Starts an adaptive recommendation session for the user."""
-        await interaction.response.defer(ephemeral=True)
         user_id = str(interaction.user.id)
 
         try:
