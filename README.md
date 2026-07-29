@@ -1,6 +1,6 @@
 # Sortling Discord Bot (`sorts-me/discord`)
 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=for-the-badge)](LICENSE)
 [![Python 3.12](https://img.shields.io/badge/Python-3.12%2B-000543?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org)
 [![Discord Nextcord](https://img.shields.io/badge/Discord-Nextcord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com)
 [![Render Host](https://img.shields.io/badge/Render-Live%20Bot-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://sortling-bot.onrender.com)
@@ -84,4 +84,4 @@ SORTLING_ALLOWED_CHANNELS=1475575132108882133,1475575133979803653
 
 ## 📜 License
 
-Licensed under the MIT License.
+Licensed under the Apache License 2.0.
