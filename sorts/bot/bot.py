@@ -127,11 +127,11 @@ def run_bot():
             time.sleep(10)
         except nextcord.errors.HTTPException as http_err:
             if getattr(http_err, "status", None) == 429:
-                logger.warning("Discord API rate limit (429) encountered. Backing off for 60 seconds...")
-                time.sleep(60)
+                logger.warning("Discord API Cloudflare ban (429) active. Backing off for 10 minutes (600s) to allow complete rate-limit cooldown...")
+                time.sleep(600)
             else:
-                logger.error(f"Bot HTTP exception: {http_err}. Reconnecting in 15 seconds...")
-                time.sleep(15)
+                logger.error(f"Bot HTTP exception: {http_err}. Reconnecting in 30 seconds...")
+                time.sleep(30)
         except Exception as e:
-            logger.error(f"Bot execution exception: {e}. Reconnecting in 15 seconds...", exc_info=True)
-            time.sleep(15)
+            logger.error(f"Bot execution exception: {e}. Reconnecting in 30 seconds...", exc_info=True)
+            time.sleep(30)
