@@ -1,103 +1,84 @@
-# Sorts.me (Central Engine)
+# Sortling Discord Bot (`sorts-me/discord`)
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
 [![Python 3.12](https://img.shields.io/badge/Python-3.12%2B-000543?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org)
-[![Fast API Core](https://img.shields.io/badge/API-REST%20CORS-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://sortling-bot.onrender.com/api/clubs)
+[![Discord Nextcord](https://img.shields.io/badge/Discord-Nextcord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com)
+[![Render Host](https://img.shields.io/badge/Render-Live%20Bot-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://sortling-bot.onrender.com)
 
-> **Central recommendation engine, dynamic question selector, club knowledge base, and REST API for the Sortling campus discovery ecosystem.**
+> **Dedicated Mahindra University Discord bot interface for the Sortling campus discovery engine. Providing interactive club matching quizzes, verified club lookups, and campus event registries directly inside Discord.**
 
-**Sorts.me** houses the core algorithmic intelligence of the Sortling platform. It transforms multi-dimensional student preferences into ranked club recommendations using Information Gain decision trees, weighted vector dot products, cosine similarity, and online gradient reinforcement learning.
+**Sortling Discord Bot** connects Mahindra University Discord channels straight to the Sortling recommendation engine. Built with Nextcord, local disk SQLite, and instant 1-step interaction handlers, it delivers sub-10ms response times for student club discovery.
 
 ---
 
 > [!NOTE]
-> ## CORE ALGORITHM ARCHITECTURE
+> ## MAHINDRA UNIVERSITY DEDICATED BOT
 >
-> Sorts.me is structured into 5 foundational components designed for sub-millisecond evaluation speed and high-precision matching across campus organizations.
+> This repository houses the dedicated Discord bot for Mahindra University. It operates on an isolated local SQLite registry (`sorts.db`), pre-loaded with verified Mahindra University clubs and hackathons.
 
 ---
 
-## 🏗️ Central Engine Structure
-
-```text
-Sorts.me
-├── Recommendation Engine   (Multi-Tier Hybrid Scoring & Cosine Matching)
-├── Question Engine         (Shannon Entropy Information Gain Decision Trees)
-├── Club Knowledge Base     (Verified Registries & Crawler Import Pipelines)
-├── Scoring                 (Online Gradient Reinforcement & Weight Decay)
-└── API                     (CORS REST API for Cross-Platform Integration)
-```
-
----
-
-## 🏛️ System Architecture
+## 🏛️ Bot Interaction Architecture
 
 ```mermaid
 graph TD
-    A[Client Request] -->|REST API GET/POST| B(API Handler /api/)
-    B -->|Fetch Session| C[SessionService]
-    C -->|Calculate Shannon Entropy| D[VarianceQuestionSelector]
-    D -->|Evaluate Candidates| E[DeterministicRecommendationEngine]
-    E -->|Hybrid Composite Score| F[Recommendation Evidence]
-    F -->|Self-Training Gradient| G[TrainingService]
-    G -->|Update Trait Matrix| H[(SQLite Knowledge Base)]
+    A[Discord User] -->|Slash Command /sort| B(Sortling Nextcord Bot)
+    B -->|Create Session| C[SessionService]
+    C -->|Fetch Question| D[VarianceQuestionSelector]
+    D -->|Render Embed Card| A
+    A -->|Click OptionButton| E[OptionButton Callback]
+    E -->|Instant 1-Step Edit| B
+    B -->|Calculate Top 3 Matches| F[DeterministicRecommendationEngine]
+    F -->|Render Results Embed| A
 ```
 
 ---
 
 ## 🌟 Key Features
 
-* 🧠 **Multi-Tier Hybrid Scoring**: Evaluates candidate clubs using a 5-term composite score formula:
-  $$\text{Score} = (0.45 \times \text{Dot}) + (0.30 \times \text{Cosine}) + (0.15 \times \text{Overlap}) + (0.10 \times \text{Commitment}) - (0.10 \times \text{Disinterest}) + \text{TieBreaker}$$
-* 🌳 **Adaptive Question Selection**: Dynamically selects questions that maximize Information Gain ($\Delta H$) using dynamic softmax temperature scaling ($T = 5.0 + 1.5 \times N$).
-* 📊 **Zero Flat Tie Scores**: Incorporates micro-entropy tie-breakers based on verification confidence and club ID hashes to ensure every club receives a unique, distinct rank.
-* 🔄 **Online Gradient Reinforcement**: Implements decaying learning rates ($\text{LR} = \frac{0.05}{1 + 0.1 \times N}$) to adjust trait matrices from student feedback without over-fitting.
-* 🌐 **High-Performance REST API**: Provides cross-origin REST endpoints for `/api/university`, `/api/clubs`, `/api/events`, `/api/sessions/start`, and `/api/sessions/answer`.
+* ⚡ **Instant 1-Step UI Navigation**: Restored direct interaction editing (`interaction.response.edit_message`) for sub-10ms button transitions without loading spinners.
+* 🎯 **Interactive Match Quiz (`/sort`)**: Guides students through an adaptive 3-to-4 question quiz to match them with verified campus organizations.
+* 📚 **Verified Campus Directory (`/clubs` & `/club`)**: Browse active club listings with pagination controls and instant keyword search.
+* 🏆 **Campus Event Registry (`/events` & `/event`)**: Displays upcoming hackathons, cash prizes, team rules, and registration links.
+* 🛡️ **Channel & Permission Scoping**: Enforces dedicated bot channel boundaries and restricts administrative setup commands to server owners.
+* 🎨 **Strict Discord UI Compliance**: Text-only button labels, structured H2 headers, bulleted metadata, mascot thumbnails, and zero em dashes.
 
 ---
 
 ## 📂 Codebase Structure
 
-* **`DeterministicRecommendationEngine` ([deterministic_engine.py](sorts/core/recommendation/deterministic_engine.py)):** Calculates composite match scores across weighted interest dot product, profile cosine similarity, trait overlap ratios, and disinterest penalties.
-* **`VarianceQuestionSelector` ([variance_selector.py](sorts/core/questions/variance_selector.py)):** Implements Shannon Entropy calculations over viable candidate pools to select optimal next questions.
-* **`TrainingService` ([training_service.py](sorts/services/training_service.py)):** Ingests feedback deltas and applies online gradient adjustments to club trait weights.
-* **`ClubService` & `SessionService` ([session_service.py](sorts/services/session_service.py)):** Manages session lifecycles, question progression, and recommendation persistence.
-* **`APIHandler` ([api.py](sorts/web/api.py)):** Serves JSON REST API endpoints with full CORS headers for external web clients.
+* **`SortlingBot` ([bot.py](sorts/bot/bot.py)):** Client wrapper managing Gateway connections, slash command registration, channel permission checks, and exponential backoff retry loops.
+* **`Sort Cog` ([sort.py](sorts/bot/cogs/sort.py)):** Entry cog for the `/sort` interactive questionnaire.
+* **`QuestionnaireView` ([questionnaire.py](sorts/bot/views/questionnaire.py)):** Interactive Nextcord View managing option buttons, card progression, and final match rendering.
+* **`Clubs Cog` ([clubs.py](sorts/bot/cogs/clubs.py)):** Cog serving `/clubs` directory and `/club <name>` lookups.
+* **`Events Cog` ([events.py](sorts/bot/cogs/events.py)):** Cog serving `/events` registry and `/event <name>` details (including Smart India Hackathon 2026).
+* **`Database Engine` ([connection.py](sorts/database/connection.py)):** SQLite database bootstrap supporting persistent disk mounts (`/var/data/sorts.db`).
 
 ---
 
-## 🛠️ Quickstart Guide
+## 🛠️ Slash Command Reference
 
-1. Clone the repository and set up a virtual environment:
-   ```bash
-   git clone https://github.com/sorts-me/sorts.me.git
-   cd sorts.me
-   python -m venv .venv
-   .venv\Scripts\activate
-   pip install -r requirements.txt
-   ```
-
-2. Run unit test suite:
-   ```bash
-   pytest
-   ```
-
-3. Start local development server:
-   ```bash
-   python main.py
-   ```
+| Command | Usage | Description |
+| :--- | :--- | :--- |
+| `/sort` | `/sort` | Starts the interactive club matching quiz. |
+| `/clubs` | `/clubs` | Displays paginated directory of active campus clubs. |
+| `/club` | `/club <name>` | Looks up full profile, schedule, and links for a specific club. |
+| `/events` | `/events [category]` | Lists upcoming campus hackathons and workshops. |
+| `/event` | `/event <name>` | Displays event details, team rules, prizes, and registration links. |
+| `/about` | `/about` | Displays university workspace info and command guide. |
+| `/feedback` | `/feedback <rating> [comments]` | Submits feedback for self-training optimization. |
+| `/admin` | `/admin <subcommand>` | Admin command for syncing registries or managing club entries. |
 
 ---
 
-## 📝 REST API Reference
+## ⚙️ Environment Configuration
 
-| Endpoint | Method | Payload / Params | Description |
-| :--- | :--- | :--- | :--- |
-| `/api/university` | `GET` | `?slug=mahindra` | Returns university profile details. |
-| `/api/clubs` | `GET` | `?university_id=1` | Returns list of verified campus clubs. |
-| `/api/events` | `GET` | `?university_id=1` | Returns active campus hackathons and events. |
-| `/api/sessions/start` | `POST` | `{"university_id": 1}` | Initializes new quiz session and returns Question 1. |
-| `/api/sessions/answer` | `POST` | `{"session_id": "...", "question_id": 1, "option_id": 2}` | Submits answer and returns next question or final top matches. |
+```env
+DISCORD_TOKEN=your_discord_bot_token_here
+DATABASE_URL=sqlite:////var/data/sorts.db
+LOG_LEVEL=INFO
+SORTLING_ALLOWED_CHANNELS=1475575132108882133,1475575133979803653
+```
 
 ---
 
