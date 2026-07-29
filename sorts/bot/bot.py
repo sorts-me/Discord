@@ -123,8 +123,15 @@ def run_bot():
 
             logger.info("Connecting Sortling to Discord Gateway...")
             bot.run(settings.DISCORD_TOKEN)
-            logger.warning("Bot event loop exited normally. Reconnecting in 5 seconds...")
-            time.sleep(5)
+            logger.warning("Bot event loop exited normally. Reconnecting in 10 seconds...")
+            time.sleep(10)
+        except nextcord.errors.HTTPException as http_err:
+            if getattr(http_err, "status", None) == 429:
+                logger.warning("Discord API rate limit (429) encountered. Backing off for 60 seconds...")
+                time.sleep(60)
+            else:
+                logger.error(f"Bot HTTP exception: {http_err}. Reconnecting in 15 seconds...")
+                time.sleep(15)
         except Exception as e:
-            logger.error(f"Bot execution exception: {e}. Reconnecting in 5 seconds...", exc_info=True)
-            time.sleep(5)
+            logger.error(f"Bot execution exception: {e}. Reconnecting in 15 seconds...", exc_info=True)
+            time.sleep(15)
