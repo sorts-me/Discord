@@ -17,17 +17,35 @@ logging.basicConfig(
 logger = logging.getLogger("main")
 
 
+import json
+from urllib.parse import urlparse, parse_qs
 from sorts.web.compliance import TERMS_HTML, PRIVACY_HTML
+from sorts.web.api import handle_api_request
 
 
 class _HealthHandler(BaseHTTPRequestHandler):
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.end_headers()
+
     def do_GET(self):
-        if self.path == "/terms":
+        parsed = urlparse(self.path)
+        path = parsed.path
+        if path.startswith("/api/"):
+            params = parse_qs(parsed.query)
+            status, data = handle_api_request(path, "GET", params, {})
+            self._send_json(status, data)
+            return
+
+        if path == "/terms":
             self.send_response(200)
             self.send_header("Content-type", "text/html; charset=utf-8")
             self.end_headers()
             self.wfile.write(TERMS_HTML.encode("utf-8"))
-        elif self.path == "/privacy":
+        elif path == "/privacy":
             self.send_response(200)
             self.send_header("Content-type", "text/html; charset=utf-8")
             self.end_headers()
@@ -37,6 +55,35 @@ class _HealthHandler(BaseHTTPRequestHandler):
             self.send_header("Content-type", "text/plain")
             self.end_headers()
             self.wfile.write(b"ok")
+
+    def do_POST(self):
+        parsed = urlparse(self.path)
+        path = parsed.path
+        if path.startswith("/api/"):
+            content_length = int(self.headers.get("Content-Length", 0))
+            body = self.rfile.read(content_length).decode("utf-8") if content_length > 0 else "{}"
+            try:
+                body_data = json.loads(body)
+            except Exception:
+                body_data = {}
+            params = parse_qs(parsed.query)
+            status, data = handle_api_request(path, "POST", params, body_data)
+            self._send_json(status, data)
+            return
+
+        self.send_response(404)
+        self.end_headers()
+
+    def _send_json(self, status: int, data: dict):
+        body = json.dumps(data).encode("utf-8")
+        self.send_response(status)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
 
     def log_message(self, *args):
         pass  # Silence access logs
