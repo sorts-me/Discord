@@ -15,6 +15,7 @@ class ClubsCog(commands.Cog):
     @nextcord.slash_command(name="clubs", description="Browse the full club directory.")
     async def clubs(self, interaction: nextcord.Interaction):
         """Presents a paginated list of all active clubs."""
+        await interaction.response.defer()
         try:
             with get_db() as db:
                 univ = get_guild_university(db, interaction.guild_id)
@@ -56,6 +57,7 @@ class ClubsCog(commands.Cog):
         name: str = nextcord.SlashOption(description="Club name or keyword to search for"),
     ):
         """Displays the full profile card for a specific club."""
+        await interaction.response.defer()
         try:
             with get_db() as db:
                 univ = get_guild_university(db, interaction.guild_id)
