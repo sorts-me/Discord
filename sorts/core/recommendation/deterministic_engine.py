@@ -45,6 +45,13 @@ class DeterministicRecommendationEngine(IRecommendationEngine):
         s_neg_interests = {slug: abs(val) for slug, val in session_traits.items() if slug in interest_slugs and val < -0.001}
         s_commitments = {slug: val for slug, val in session_traits.items() if slug in commitment_slugs and abs(val) > 0.001}
 
+        # Adaptive Stage-Based Weighting based on session density
+        num_answered = len(session_traits)
+        if num_answered < 3:
+            w_dot, w_interest, w_overlap, w_commit = 0.40, 0.25, 0.25, 0.10
+        else:
+            w_dot, w_interest, w_overlap, w_commit = 0.30, 0.40, 0.15, 0.15
+
         results = []
 
         for club in clubs:
@@ -73,58 +80,68 @@ class DeterministicRecommendationEngine(IRecommendationEngine):
                         )
                     )
 
-            # 1. Weighted Dot Product (Alignment of student positive traits with club traits)
-            max_dot = sum(s_pos_interests.values())
-            dot = sum(s_pos_interests[k] * c_interests.get(k, 0.0) for k in s_pos_interests)
-            dot_score = dot / (max_dot + 1e-9)
-
-            # 2. Cosine Similarity (Directional profile match)
-            norm_s = math.sqrt(sum(v**2 for v in s_pos_interests.values()))
-            norm_c = math.sqrt(sum(v**2 for v in c_interests.values()))
-            interest_score = dot / (norm_s * norm_c + 1e-9)
-
-            # 3. Multi-Trait Overlap Ratio (Jaccard-like trait overlap)
-            matched_count = sum(1 for k in s_pos_interests if k in c_interests)
-            overlap_score = matched_count / len(s_pos_interests)
-
-            # 4. Commitment Alignment
-            if c_commitments and s_commitments:
-                norm_cs = math.sqrt(sum(v**2 for v in s_commitments.values()))
-                norm_cc = math.sqrt(sum(v**2 for v in c_commitments.values()))
-                c_dot = sum(s_commitments[k] * c_commitments.get(k, 0.0) for k in s_commitments)
-                commitment_score = c_dot / (norm_cs * norm_cc + 1e-9)
-            else:
-                commitment_score = 0.7  # Neutral default for unstated commitment
-
-            # 5. Disinterest Penalty
-            disinterest_penalty = 0.0
+            # Deal-Breaker Hard Veto Check (Strong negative preference vs High club specialization)
+            is_vetoed = False
             if s_neg_interests and c_interests:
-                disinterest_sum = sum(s_neg_interests[slug] * c_interests.get(slug, 0.0) for slug in s_neg_interests)
-                c_norm = math.sqrt(sum(v**2 for v in c_interests.values())) + 1e-9
-                disinterest_penalty = disinterest_sum / c_norm
+                for slug, neg_val in s_neg_interests.items():
+                    if neg_val >= 0.8 and c_interests.get(slug, 0.0) >= 0.7:
+                        is_vetoed = True
+                        break
 
-            # Multi-Tier Composite Scoring: 45% Dot, 30% Cosine, 15% Overlap, 10% Commitment - 10% Disinterest
-            if c_interests and dot <= 0.0:
+            if is_vetoed:
                 overall_score = 0.0
             else:
-                overall_score = (
-                    (0.45 * dot_score)
-                    + (0.30 * interest_score)
-                    + (0.15 * overlap_score)
-                    + (0.10 * commitment_score)
-                    - (0.10 * disinterest_penalty)
-                )
+                # 1. Weighted Dot Product
+                max_dot = sum(s_pos_interests.values()) if s_pos_interests else 1.0
+                dot = sum(s_pos_interests[k] * c_interests.get(k, 0.0) for k in s_pos_interests) if s_pos_interests else 0.0
+                dot_score = dot / (max_dot + 1e-9)
 
-            # Micro tie-breaker based on club ID & verification to eliminate flat tie scores
-            ver_conf = 1.0
-            if hasattr(club, "verification") and isinstance(club.verification, dict):
-                ver_conf = club.verification.get("confidence", 100) / 100.0
-            official_bonus = 0.015 if getattr(club, "official", False) else 0.005
-            tie_breaker = ((getattr(club, "id", 0) or 0) % 97) * 0.0001
-            overall_score += (official_bonus * ver_conf) + tie_breaker
+                # 2. Cosine Similarity
+                norm_s = math.sqrt(sum(v**2 for v in s_pos_interests.values())) if s_pos_interests else 0.0
+                norm_c = math.sqrt(sum(v**2 for v in c_interests.values())) if c_interests else 0.0
+                interest_score = (dot / (norm_s * norm_c + 1e-9)) if norm_s > 0 and norm_c > 0 else 0.0
+
+                # 3. Multi-Trait Overlap Ratio
+                matched_count = sum(1 for k in s_pos_interests if k in c_interests) if s_pos_interests else 0
+                overlap_score = (matched_count / len(s_pos_interests)) if s_pos_interests else 0.0
+
+                # 4. Commitment Alignment
+                if c_commitments and s_commitments:
+                    norm_cs = math.sqrt(sum(v**2 for v in s_commitments.values()))
+                    norm_cc = math.sqrt(sum(v**2 for v in c_commitments.values()))
+                    c_dot = sum(s_commitments[k] * c_commitments.get(k, 0.0) for k in s_commitments)
+                    commitment_score = c_dot / (norm_cs * norm_cc + 1e-9)
+                else:
+                    commitment_score = 0.7  # Neutral default for unstated commitment
+
+                # 5. Quadratic Disinterest Penalty
+                disinterest_penalty = 0.0
+                if s_neg_interests and c_interests:
+                    disinterest_sq_sum = sum(((s_neg_interests[slug] * c_interests.get(slug, 0.0)) ** 2) for slug in s_neg_interests)
+                    c_norm = math.sqrt(sum(v**2 for v in c_interests.values())) + 1e-9
+                    disinterest_penalty = disinterest_sq_sum / c_norm
+
+                # Adaptive Composite Scoring
+                if c_interests and dot <= 0.0 and interest_score <= 0.0:
+                    overall_score = 0.0
+                else:
+                    overall_score = (
+                        (w_dot * dot_score)
+                        + (w_interest * interest_score)
+                        + (w_overlap * overlap_score)
+                        + (w_commit * commitment_score)
+                        - (0.15 * disinterest_penalty)
+                    )
+
+                # Micro tie-breaker based on club ID & verification
+                ver_conf = 1.0
+                if hasattr(club, "verification") and isinstance(club.verification, dict):
+                    ver_conf = club.verification.get("confidence", 100) / 100.0
+                official_bonus = 0.015 if getattr(club, "official", False) else 0.005
+                tie_breaker = ((getattr(club, "id", 0) or 0) % 97) * 0.0001
+                overall_score += (official_bonus * ver_conf) + tie_breaker
 
             overall_score = max(0.0, min(1.0, overall_score))
-
             matches.sort(key=lambda m: m.contribution, reverse=True)
 
             results.append(
@@ -137,4 +154,46 @@ class DeterministicRecommendationEngine(IRecommendationEngine):
             )
 
         results.sort(key=lambda r: r.overall_score, reverse=True)
-        return results
+        return self._apply_mmr_diversity(results, clubs)
+
+    def _apply_mmr_diversity(
+        self, results: List[RecommendationEvidence], clubs: List[Club], top_k: int = 10, lambda_param: float = 0.75
+    ) -> List[RecommendationEvidence]:
+        """Applies Maximal Marginal Relevance (MMR) to balance match relevance with category diversity."""
+        if not results or len(results) <= 1:
+            return results
+
+        club_vectors = {}
+        for club in clubs:
+            vec = {ct.trait_slug: ct.weight for ct in club.traits if "commitment" not in ct.trait_slug}
+            club_vectors[club.id] = vec
+
+        selected = []
+        candidates = list(results)
+
+        # First pick is the highest overall score match
+        selected.append(candidates.pop(0))
+
+        while candidates and len(selected) < top_k:
+            best_mmr = -1e9
+            best_cand_idx = 0
+
+            for i, cand in enumerate(candidates):
+                relevance = cand.overall_score
+                cand_vec = club_vectors.get(cand.club_id, {})
+
+                max_sim = 0.0
+                for sel in selected:
+                    sel_vec = club_vectors.get(sel.club_id, {})
+                    sim = self._cosine_similarity(cand_vec, sel_vec)
+                    if sim > max_sim:
+                        max_sim = sim
+
+                mmr_score = (lambda_param * relevance) - ((1.0 - lambda_param) * max_sim)
+                if mmr_score > best_mmr:
+                    best_mmr = mmr_score
+                    best_cand_idx = i
+
+            selected.append(candidates.pop(best_cand_idx))
+
+        return selected + candidates
