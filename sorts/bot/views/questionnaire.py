@@ -47,6 +47,7 @@ class OptionButton(nextcord.ui.Button):
         view: "QuestionnaireView" = self.view
 
         try:
+            await interaction.response.defer()
             with get_db() as db:
                 view.session_service.submit_answer(db, view.session_id, self.question_id, self.option_id)
                 next_q = view.session_service.get_next_question(db, view.session_id)
@@ -62,7 +63,7 @@ class OptionButton(nextcord.ui.Button):
                         text=f"Sortling • Question {view.question_number}"
                     )
                     embed.set_thumbnail(url="attachment://thinking.gif")
-                    await interaction.response.edit_message(embed=embed, view=view)
+                    await interaction.edit_original_message(embed=embed, view=view)
 
                 else:
                     loading_embed = nextcord.Embed(
@@ -75,9 +76,9 @@ class OptionButton(nextcord.ui.Button):
                     if os.path.exists(thinking_path):
                         file = nextcord.File(thinking_path, filename="thinking.gif")
                         loading_embed.set_thumbnail(url="attachment://thinking.gif")
-                        await interaction.response.edit_message(embed=loading_embed, file=file, view=None)
+                        await interaction.edit_original_message(embed=loading_embed, file=file, view=None)
                     else:
-                        await interaction.response.edit_message(embed=loading_embed, view=None)
+                        await interaction.edit_original_message(embed=loading_embed, view=None)
 
                     recs = view.session_service.generate_recommendations(db, view.session_id)
 
