@@ -6,9 +6,10 @@ class ExplanationGenerator(IExplanationGenerator):
     def generate_explanation(self, evidence: RecommendationEvidence) -> str:
         """Generates a varied, natural explanation based on interest and commitment matches."""
         # Separate interest matches from commitment matches
+        # Separate interest matches from commitment matches (require student_weight >= 0.3 for active interest phrases)
         interest_matches = [
             m for m in evidence.matches
-            if m.contribution > 0.001 and m.student_weight > 0 and "commitment" not in m.trait_slug
+            if m.contribution > 0.001 and m.student_weight >= 0.3 and "commitment" not in m.trait_slug
         ]
         commitment_matches = [
             m for m in evidence.matches

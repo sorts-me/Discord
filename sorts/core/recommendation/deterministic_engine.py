@@ -73,33 +73,56 @@ class DeterministicRecommendationEngine(IRecommendationEngine):
                         )
                     )
 
-            # 1. Positive interest cosine similarity (unaffected by negative preferences)
-            interest_score = self._cosine_similarity(s_pos_interests, c_interests)
-            
-            # 2. Commitment cosine similarity
-            commitment_score = self._cosine_similarity(s_commitments, c_commitments)
+            # 1. Weighted Dot Product (Alignment of student positive traits with club traits)
+            max_dot = sum(s_pos_interests.values())
+            dot = sum(s_pos_interests[k] * c_interests.get(k, 0.0) for k in s_pos_interests)
+            dot_score = dot / (max_dot + 1e-9)
 
-            # 3. Disinterest penalty (if student dis-likes a topic that club specializes in)
+            # 2. Cosine Similarity (Directional profile match)
+            norm_s = math.sqrt(sum(v**2 for v in s_pos_interests.values()))
+            norm_c = math.sqrt(sum(v**2 for v in c_interests.values()))
+            interest_score = dot / (norm_s * norm_c + 1e-9)
+
+            # 3. Multi-Trait Overlap Ratio (Jaccard-like trait overlap)
+            matched_count = sum(1 for k in s_pos_interests if k in c_interests)
+            overlap_score = matched_count / len(s_pos_interests)
+
+            # 4. Commitment Alignment
+            if c_commitments and s_commitments:
+                norm_cs = math.sqrt(sum(v**2 for v in s_commitments.values()))
+                norm_cc = math.sqrt(sum(v**2 for v in c_commitments.values()))
+                c_dot = sum(s_commitments[k] * c_commitments.get(k, 0.0) for k in s_commitments)
+                commitment_score = c_dot / (norm_cs * norm_cc + 1e-9)
+            else:
+                commitment_score = 0.7  # Neutral default for unstated commitment
+
+            # 5. Disinterest Penalty
             disinterest_penalty = 0.0
             if s_neg_interests and c_interests:
                 disinterest_sum = sum(s_neg_interests[slug] * c_interests.get(slug, 0.0) for slug in s_neg_interests)
                 c_norm = math.sqrt(sum(v**2 for v in c_interests.values())) + 1e-9
                 disinterest_penalty = disinterest_sum / c_norm
 
-            # Combine scores: 85% interest, 15% commitment - 10% disinterest penalty
-            if c_interests and interest_score <= 0.0:
+            # Multi-Tier Composite Scoring: 45% Dot, 30% Cosine, 15% Overlap, 10% Commitment - 10% Disinterest
+            if c_interests and dot <= 0.0:
                 overall_score = 0.0
             else:
-                overall_score = (0.85 * interest_score) + (0.15 * commitment_score) - (0.10 * disinterest_penalty)
+                overall_score = (
+                    (0.45 * dot_score)
+                    + (0.30 * interest_score)
+                    + (0.15 * overlap_score)
+                    + (0.10 * commitment_score)
+                    - (0.10 * disinterest_penalty)
+                )
 
-            # Micro tie-breaker for official status & verification confidence (+0.02 max)
+            # Micro tie-breaker based on club ID & verification to eliminate flat tie scores
             ver_conf = 1.0
             if hasattr(club, "verification") and isinstance(club.verification, dict):
                 ver_conf = club.verification.get("confidence", 100) / 100.0
             official_bonus = 0.015 if getattr(club, "official", False) else 0.005
-            overall_score += (official_bonus * ver_conf)
+            tie_breaker = ((getattr(club, "id", 0) or 0) % 97) * 0.0001
+            overall_score += (official_bonus * ver_conf) + tie_breaker
 
-            # Clamp score to [0.0, 1.0] range
             overall_score = max(0.0, min(1.0, overall_score))
 
             matches.sort(key=lambda m: m.contribution, reverse=True)

@@ -43,25 +43,49 @@ class VarianceQuestionSelector(IQuestionSelector):
                 elif ct.trait_slug in commitment_slugs:
                     c_commitments[ct.trait_slug] = ct.weight
 
-            interest_score = self._cosine_similarity(s_pos_interests, c_interests)
-            commitment_score = self._cosine_similarity(s_commitments, c_commitments)
+            # 1. Weighted Dot Product (Alignment of student positive traits with club traits)
+            max_dot = sum(s_pos_interests.values()) if s_pos_interests else 1.0
+            dot = sum(s_pos_interests[k] * c_interests.get(k, 0.0) for k in s_pos_interests) if s_pos_interests else 0.0
+            dot_score = dot / (max_dot + 1e-9)
 
+            # 2. Cosine Similarity (Directional profile match)
+            interest_score = self._cosine_similarity(s_pos_interests, c_interests)
+
+            # 3. Multi-Trait Overlap Ratio (Jaccard-like trait overlap)
+            matched_count = sum(1 for k in s_pos_interests if k in c_interests) if s_pos_interests else 0
+            overlap_score = matched_count / len(s_pos_interests) if s_pos_interests else 0.0
+
+            # 4. Commitment Alignment
+            if c_commitments and s_commitments:
+                commitment_score = self._cosine_similarity(s_commitments, c_commitments)
+            else:
+                commitment_score = 0.7  # Neutral default for unstated commitment
+
+            # 5. Disinterest Penalty
             disinterest_penalty = 0.0
             if s_neg_interests and c_interests:
                 disinterest_sum = sum(s_neg_interests[slug] * c_interests.get(slug, 0.0) for slug in s_neg_interests)
                 c_norm = math.sqrt(sum(v**2 for v in c_interests.values())) + 1e-9
                 disinterest_penalty = disinterest_sum / c_norm
 
-            if c_interests and interest_score <= 0.0:
+            # Multi-Tier Composite Scoring
+            if c_interests and dot <= 0.0 and interest_score <= 0.0:
                 overall_score = 0.0
             else:
-                overall_score = (0.85 * interest_score) + (0.15 * commitment_score) - (0.10 * disinterest_penalty)
+                overall_score = (
+                    (0.45 * dot_score)
+                    + (0.30 * interest_score)
+                    + (0.15 * overlap_score)
+                    + (0.10 * commitment_score)
+                    - (0.10 * disinterest_penalty)
+                )
 
             ver_conf = 1.0
             if hasattr(club, "verification") and isinstance(club.verification, dict):
                 ver_conf = club.verification.get("confidence", 100) / 100.0
             official_bonus = 0.015 if getattr(club, "official", False) else 0.005
-            overall_score += (official_bonus * ver_conf)
+            tie_breaker = ((getattr(club, "id", 0) or 0) % 97) * 0.0001
+            overall_score += (official_bonus * ver_conf) + tie_breaker
 
             scores.append(max(0.0, min(1.0, overall_score)))
         return scores
