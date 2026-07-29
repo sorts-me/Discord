@@ -273,7 +273,7 @@ TERMS_HTML = f"""<!DOCTYPE html>
             </div>
             <div class="brand-title-group">
                 <div class="brand-name">Sortling <span class="discord-badge">APP</span></div>
-                <div class="brand-subtitle">Club Matching for Students</div>
+                <div class="brand-subtitle">Mahindra University</div>
             </div>
         </div>
 
@@ -310,7 +310,7 @@ TERMS_HTML = f"""<!DOCTYPE html>
         <p>Sortling is provided on an "as is" and "as available" basis without warranties of any kind. The developers shall not be liable for any indirect or consequential damages arising out of your use of the application.</p>
 
         <div class="footer">
-            Sortling Discord Application &bull; <a href="/privacy">Privacy Policy</a>
+            Sortling Discord Application &bull; <a href="/privacy">Privacy Policy</a> &bull; Mahindra University
         </div>
     </div>
 </body>
@@ -333,7 +333,7 @@ PRIVACY_HTML = f"""<!DOCTYPE html>
             </div>
             <div class="brand-title-group">
                 <div class="brand-name">Sortling <span class="discord-badge">APP</span></div>
-                <div class="brand-subtitle">Club Matching for Students</div>
+                <div class="brand-subtitle">Mahindra University</div>
             </div>
         </div>
 
@@ -374,7 +374,7 @@ PRIVACY_HTML = f"""<!DOCTYPE html>
         <p>We do <strong>NOT</strong> sell, trade, or share user data with third-party advertisers or external services.</p>
 
         <div class="footer">
-            Sortling Discord Application &bull; <a href="/terms">Terms of Service</a>
+            Sortling Discord Application &bull; <a href="/terms">Terms of Service</a> &bull; Mahindra University
         </div>
     </div>
 </body>

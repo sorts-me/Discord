@@ -2,7 +2,7 @@ import os
 import re
 import logging
 from datetime import datetime
-from typing import List, Dict, Any, Tuple, Optional
+from typing import List, Dict, Any, Tuple
 from sqlalchemy.orm import Session
 from sorts.core.extractor.bs4_extractor import BS4Extractor
 from sorts.core.extractor.selector_detector import detect_parser_config
@@ -184,135 +184,6 @@ class ImporterPipeline:
 
         except Exception as e:
             logger.exception("Import pipeline encountered an error.")
-            job.status = "failed"
-            job.finished_at = datetime.utcnow()
-            job.error_message = str(e)
-            db.commit()
-            raise e
-
-    def run_import_from_list(
-        self,
-        db: Session,
-        university_id: int,
-        source_id: int,
-        clubs_list: List[Dict[str, Any]],
-    ) -> int:
-        """Create an ImportJob from an explicit list of club dicts (e.g. from a PDF).
-
-        Mirrors run_import but skips URL fetching and HTML extraction.
-        Returns the new job_id.
-        """
-        job = ImportJob(
-            university_id=university_id,
-            source_id=source_id,
-            status="running",
-            created_at=datetime.utcnow(),
-        )
-        db.add(job)
-        db.commit()
-        db.refresh(job)
-
-        try:
-            all_traits = db.query(Trait).all()
-            active_clubs = db.query(Club).filter_by(university_id=university_id).all()
-            active_clubs_by_slug = {c.slug: c for c in active_clubs}
-            draft_slugs: set = set()
-
-            for rc in clubs_list:
-                name = (rc.get("name") or "").strip()
-                if not name:
-                    continue
-                slug = self._slugify(name)
-                draft_slugs.add(slug)
-
-                inferred_traits = self.trait_inferencer.infer_traits(
-                    name, rc.get("description") or "", all_traits
-                )
-
-                status = "new"
-                if slug in active_clubs_by_slug:
-                    active_c = active_clubs_by_slug[slug]
-                    changed = (
-                        active_c.name != name
-                        or active_c.summary != rc.get("summary")
-                        or active_c.description != rc.get("description")
-                        or active_c.website != rc.get("website")
-                        or active_c.discord != rc.get("discord")
-                        or active_c.instagram != rc.get("instagram")
-                        or active_c.email != rc.get("email")
-                        or active_c.image != rc.get("image")
-                        or active_c.meeting_frequency != rc.get("meeting_frequency")
-                        or active_c.commitment != rc.get("commitment")
-                    )
-                    if not changed:
-                        active_traits_map = {t.trait.slug: t.weight for t in active_c.traits}
-                        inferred_traits_map = {t.trait_slug: t.weight for t in inferred_traits}
-                        if active_traits_map != inferred_traits_map:
-                            changed = True
-                    status = "updated" if changed else "unchanged"
-
-                draft_c = DraftClub(
-                    import_job_id=job.id,
-                    name=name,
-                    summary=rc.get("summary"),
-                    description=rc.get("description"),
-                    website=rc.get("website"),
-                    discord=rc.get("discord"),
-                    instagram=rc.get("instagram"),
-                    email=rc.get("email"),
-                    image=rc.get("image"),
-                    meeting_frequency=rc.get("meeting_frequency"),
-                    commitment=rc.get("commitment"),
-                    status=status,
-                )
-                db.add(draft_c)
-                db.commit()
-                db.refresh(draft_c)
-
-                for it in inferred_traits:
-                    trait_obj = db.query(Trait).filter_by(slug=it.trait_slug).first()
-                    if trait_obj:
-                        db.add(DraftClubTrait(
-                            draft_club_id=draft_c.id,
-                            trait_id=trait_obj.id,
-                            weight=it.weight,
-                        ))
-
-            # Clubs absent from the upload are marked removed
-            for slug, active_c in active_clubs_by_slug.items():
-                if slug not in draft_slugs:
-                    draft_c = DraftClub(
-                        import_job_id=job.id,
-                        name=active_c.name,
-                        summary=active_c.summary,
-                        description=active_c.description,
-                        website=active_c.website,
-                        discord=active_c.discord,
-                        instagram=active_c.instagram,
-                        email=active_c.email,
-                        image=active_c.image,
-                        meeting_frequency=active_c.meeting_frequency,
-                        commitment=active_c.commitment,
-                        status="removed",
-                    )
-                    db.add(draft_c)
-                    db.commit()
-                    db.refresh(draft_c)
-                    for ct in active_c.traits:
-                        db.add(DraftClubTrait(
-                            draft_club_id=draft_c.id,
-                            trait_id=ct.trait_id,
-                            weight=ct.weight,
-                        ))
-
-            job.status = "completed"
-            job.finished_at = datetime.utcnow()
-            db.commit()
-            logger.info(f"ImportJob {job.id} (from list) completed.")
-            return job.id
-
-        except Exception as e:
-            logger.exception("run_import_from_list encountered an error.")
             job.status = "failed"
             job.finished_at = datetime.utcnow()
             job.error_message = str(e)

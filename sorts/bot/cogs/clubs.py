@@ -16,7 +16,6 @@ class ClubsCog(commands.Cog):
     async def clubs(self, interaction: nextcord.Interaction):
         """Presents a paginated list of all active clubs."""
         try:
-            await interaction.response.defer()
             with get_db() as db:
                 univ = get_guild_university(db, interaction.guild_id)
                 if not univ:
@@ -58,7 +57,6 @@ class ClubsCog(commands.Cog):
     ):
         """Displays the full profile card for a specific club."""
         try:
-            await interaction.response.defer()
             with get_db() as db:
                 univ = get_guild_university(db, interaction.guild_id)
                 if not univ:
@@ -102,9 +100,9 @@ class ClubsCog(commands.Cog):
                 conf = ver.get("confidence", 100 if club.official else 75)
                 is_ver = "Verified" if ver.get("verified", True) else "Unverified"
 
-                desc_parts = []
-                if summary:
-                    desc_parts.append(f"> **{summary}**")
+                desc_parts = [
+                    f"> **{summary}**",
+                ]
                 if full_desc:
                     desc_parts.extend([
                         "",

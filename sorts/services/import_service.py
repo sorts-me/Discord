@@ -27,19 +27,6 @@ class ImportService:
         """Lists available crawler source URLs/files for a university."""
         return db.query(db_models.ImportSource).filter_by(university_id=university_id, is_active=True).all()
 
-    def import_from_clubs_list(
-        self,
-        db: Session,
-        university_id: int,
-        source_id: int,
-        clubs_list: list,
-    ) -> int:
-        """Run the import pipeline from an explicit list of club dicts (e.g. parsed from a PDF).
-
-        Returns the new job_id, ready to publish.
-        """
-        return self.pipeline.run_import_from_list(db, university_id, source_id, clubs_list)
-
     def get_latest_job(self, db: Session, university_id: int) -> Optional[db_models.ImportJob]:
         """Gets the most recent import job for a university."""
         return db.query(db_models.ImportJob)\

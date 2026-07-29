@@ -35,7 +35,6 @@ class FeedbackCog(commands.Cog):
         print(f"[FEEDBACK_LOG] User='{user_name}' ({user_id}) Rating={rating}/5 Comments='{comments or 'None'}'", flush=True)
 
         try:
-            await interaction.response.defer(ephemeral=True)
             with get_db() as db:
                 univ = get_guild_university(db, interaction.guild_id)
                 if not univ:

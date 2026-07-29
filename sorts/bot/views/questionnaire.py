@@ -47,7 +47,6 @@ class OptionButton(nextcord.ui.Button):
         view: "QuestionnaireView" = self.view
 
         try:
-            await interaction.response.defer()
             with get_db() as db:
                 view.session_service.submit_answer(db, view.session_id, self.question_id, self.option_id)
                 next_q = view.session_service.get_next_question(db, view.session_id)
@@ -62,10 +61,8 @@ class OptionButton(nextcord.ui.Button):
                     embed.set_footer(
                         text=f"Sortling • Question {view.question_number}"
                     )
-                    if interaction.response.is_done():
-                        await interaction.edit_original_message(embed=embed, view=view)
-                    else:
-                        await interaction.response.edit_message(embed=embed, view=view)
+                    embed.set_thumbnail(url="attachment://thinking.gif")
+                    await interaction.response.edit_message(embed=embed, view=view)
 
                 else:
                     loading_embed = nextcord.Embed(
@@ -78,11 +75,9 @@ class OptionButton(nextcord.ui.Button):
                     if os.path.exists(thinking_path):
                         file = nextcord.File(thinking_path, filename="thinking.gif")
                         loading_embed.set_thumbnail(url="attachment://thinking.gif")
-                    
-                    if interaction.response.is_done():
-                        await interaction.edit_original_message(embed=loading_embed, file=file, view=None)
-                    else:
                         await interaction.response.edit_message(embed=loading_embed, file=file, view=None)
+                    else:
+                        await interaction.response.edit_message(embed=loading_embed, view=None)
 
                     recs = view.session_service.generate_recommendations(db, view.session_id)
 
@@ -302,16 +297,15 @@ class RefineInterestsView(nextcord.ui.View):
                         file = nextcord.File(thinking_path, filename="thinking.gif")
                         embed.set_thumbnail(url="attachment://thinking.gif")
 
-                    send_fn = interaction.followup.send if interaction.response.is_done() else interaction.response.send_message
                     if file:
-                        await send_fn(
+                        await interaction.response.send_message(
                             embed=embed,
                             view=view,
                             file=file,
                             ephemeral=True
                         )
                     else:
-                        await send_fn(
+                        await interaction.response.send_message(
                             embed=embed,
                             view=view,
                             ephemeral=True
@@ -352,11 +346,11 @@ class RefineInterestsView(nextcord.ui.View):
                         file = nextcord.File(icon_path, filename="Icon_Neutral.png")
                         embed.set_thumbnail(url="attachment://Icon_Neutral.png")
 
-                    send_fn = interaction.followup.send if interaction.response.is_done() else interaction.response.send_message
+                    result_view = RecommendationResultsView(self.session_id)
                     if file:
-                        await send_fn(embed=embed, view=result_view, file=file, ephemeral=True)
+                        await interaction.response.send_message(embed=embed, view=result_view, file=file, ephemeral=True)
                     else:
-                        await send_fn(embed=embed, view=result_view, ephemeral=True)
+                        await interaction.response.send_message(embed=embed, view=result_view, ephemeral=True)
 
         except Exception as e:
             logger.error(f"Error in _on_select_submit: {e}", exc_info=True)

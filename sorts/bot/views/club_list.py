@@ -44,26 +44,18 @@ class ClubPagingView(nextcord.ui.View):
 
     @nextcord.ui.button(label="< Previous", style=nextcord.ButtonStyle.secondary)
     async def prev_page_btn(self, button: nextcord.ui.Button, interaction: nextcord.Interaction):
-        await interaction.response.defer()
         if self.page > 1:
             self.page -= 1
             with get_db() as db:
                 clubs, _ = self.club_service.get_clubs_paginated(db, self.university_id, self.page, self.per_page)
                 self.update_buttons()
-                if interaction.response.is_done():
-                    await interaction.edit_original_message(embed=self.make_embed(clubs), view=self)
-                else:
-                    await interaction.response.edit_message(embed=self.make_embed(clubs), view=self)
+                await interaction.response.edit_message(embed=self.make_embed(clubs), view=self)
 
     @nextcord.ui.button(label="Next >", style=nextcord.ButtonStyle.secondary)
     async def next_page_btn(self, button: nextcord.ui.Button, interaction: nextcord.Interaction):
-        await interaction.response.defer()
         if self.page * self.per_page < self.total_count:
             self.page += 1
             with get_db() as db:
                 clubs, _ = self.club_service.get_clubs_paginated(db, self.university_id, self.page, self.per_page)
                 self.update_buttons()
-                if interaction.response.is_done():
-                    await interaction.edit_original_message(embed=self.make_embed(clubs), view=self)
-                else:
-                    await interaction.response.edit_message(embed=self.make_embed(clubs), view=self)
+                await interaction.response.edit_message(embed=self.make_embed(clubs), view=self)

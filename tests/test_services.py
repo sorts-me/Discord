@@ -22,22 +22,14 @@ def db_session():
         session.close()
 
 def test_database_seeding_and_session_flow(db_session):
-    univ = db_models.University(
-        slug="mahindra",
-        name="Mahindra University",
-        website="https://www.mahindrauniversity.edu.in",
-        description="Campus guide",
-    )
-    db_session.add(univ)
-    db_session.commit()
-    db_session.refresh(univ)
+    seed_file = "sorts/assets/data/mahindra_seed.json"
+    assert os.path.exists(seed_file), "Seed file is required for verification."
     
     # 1. Run Seeder
-    from sorts.services.seed_service import seed_global_traits, seed_default_questions
-    seed_global_traits(db_session)
-    seed_default_questions(db_session, univ.id)
+    seed_database(db_session, seed_file)
     
     # Verify university seeded
+    univ = db_session.query(db_models.University).filter_by(slug="mahindra").first()
     assert univ is not None
     assert univ.name == "Mahindra University"
     
@@ -47,18 +39,11 @@ def test_database_seeding_and_session_flow(db_session):
     questions_count = db_session.query(db_models.Question).count()
     assert questions_count > 0
 
-    # Populate a test club
-    club = db_models.Club(
-        university_id=univ.id,
-        slug="test-club",
-        name="Test Coding Club",
-        summary="A test club for software developers",
-        description="Detailed description of test coding club.",
-        category="Technical",
-        official=True
-    )
-    db_session.add(club)
-    db_session.commit()
+    # 1.5 Run import & publish to populate clubs in DB
+    import_svc = ImportService()
+    source = db_session.query(db_models.ImportSource).first()
+    job_id = import_svc.trigger_import(db_session, source.id)
+    import_svc.publish_job(db_session, job_id)
 
     # 2. Run Recommendation Session Flow via SessionService
     session_svc = SessionService()
@@ -95,51 +80,50 @@ def test_database_seeding_and_session_flow(db_session):
 
 
 def test_crawler_import_and_publish_flow(db_session):
-    univ = db_models.University(
-        slug="mahindra",
-        name="Mahindra University",
-        website="https://www.mahindrauniversity.edu.in",
-        description="Campus guide",
-    )
-    db_session.add(univ)
-    db_session.commit()
-    db_session.refresh(univ)
-
-    source = db_models.ImportSource(
-        university_id=univ.id,
-        name="Default Source",
-        source_type="file",
-        url="sorts/assets/data/global_defaults.json",
-    )
-    db_session.add(source)
-    db_session.commit()
+    # Seed university metadata first
+    seed_file = "sorts/assets/data/mahindra_seed.json"
+    seed_database(db_session, seed_file)
 
     import_svc = ImportService()
     
-    raw_clubs = [{
-        "name": "Enigma",
-        "summary": "Coding and CS Club",
-        "description": "Enigma is the coding club",
-        "category": "Technical",
-        "official": True,
-        "meeting_frequency": "Weekly",
-        "commitment": "High commitment"
-    }]
+    # Fetch import source
+    source = db_session.query(db_models.ImportSource).first()
+    assert source is not None
     
-    job_id = import_svc.import_from_clubs_list(db_session, univ.id, source.id, raw_clubs)
+    # 1. Run Import (crawls the local HTML file)
+    job_id = import_svc.trigger_import(db_session, source.id)
     assert job_id > 0
     
     job = import_svc.get_job(db_session, job_id)
     assert job.status == "completed"
 
+    # Verify draft clubs were created
     drafts = db_session.query(db_models.DraftClub).filter_by(import_job_id=job_id).all()
     assert len(drafts) > 0
-    assert drafts[0].name == "Enigma"
+    
+    # Check that Enigma or Electrowizards exists in drafts
+    draft_names = {d.name for d in drafts}
+    assert "Enigma" in draft_names or "Electrowizards" in draft_names
 
+    # Check traits are mapped in drafts
+    draft_c = drafts[0]
+    assert len(draft_c.traits) > 0
+
+    # 2. Publish drafts
     import_svc.publish_job(db_session, job_id)
+    
+    # Verify job marked approved
     db_session.refresh(job)
     assert job.status == "approved"
-
-    clubs = db_session.query(db_models.Club).filter_by(university_id=univ.id).all()
+    
+    # Verify clubs are active in the university directory
+    clubs = db_session.query(db_models.Club).filter_by(university_id=source.university_id).all()
     assert len(clubs) > 0
-    assert clubs[0].name == "Enigma"
+    
+    active_club_names = {c.name for c in clubs}
+    assert "Enigma" in active_club_names
+    
+    # Check that traits exist on the published clubs
+    active_c = db_session.query(db_models.Club).filter_by(name="Enigma").first()
+    assert len(active_c.traits) > 0
+    assert active_c.traits[0].weight > 0.0

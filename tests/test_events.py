@@ -7,16 +7,7 @@ from sorts.services.seed_service import sync_verified_events, seed_database
 def test_event_seeding_and_querying():
     init_db()
     with get_db() as db:
-        univ = db.query(db_models.University).filter_by(slug="mahindra").first()
-        if not univ:
-            univ = db_models.University(
-                slug="mahindra",
-                name="Mahindra University",
-                website="https://www.mahindrauniversity.edu.in",
-                description="Campus guide",
-            )
-            db.add(univ)
-            db.commit()
+        seed_database(db, "sorts/assets/data/mahindra_seed.json")
         sync_verified_events(db)
 
         univ = db.query(db_models.University).filter_by(slug="mahindra").first()

@@ -19,7 +19,6 @@ class SortCog(commands.Cog):
         user_id = str(interaction.user.id)
 
         try:
-            await interaction.response.defer()
             with get_db() as db:
                 univ = get_guild_university(db, interaction.guild_id)
                 if not univ:
@@ -70,7 +69,7 @@ class SortCog(commands.Cog):
                     embed.set_thumbnail(url="attachment://thinking.gif")
 
                 if file:
-                    await interaction.send(embed=embed, view=view, ephemeral=True)
+                    await interaction.send(embed=embed, view=view, file=file, ephemeral=True)
                 else:
                     await interaction.send(embed=embed, view=view, ephemeral=True)
 

@@ -22,9 +22,9 @@ def main():
     # 1. Seed Command
     seed_parser = subparsers.add_parser("seed", help="Initialize and seed the database with standard data.")
     seed_parser.add_argument(
-        "--file",
-        default="",
-        help="Path to the seed JSON file (e.g. sorts/assets/data/my_university_seed.json)."
+        "--file", 
+        default="sorts/assets/data/mahindra_seed.json", 
+        help="Path to the seed JSON file."
     )
 
     # 2. Import Command
@@ -42,9 +42,9 @@ def main():
     # 5. Interactive Command
     interactive_parser = subparsers.add_parser("interactive", help="Start an interactive matching questionnaire session.")
     interactive_parser.add_argument(
-        "--university-slug",
-        default="",
-        help="Slug of the university to run the questionnaire against."
+        "--university-slug", 
+        default="mahindra", 
+        help="Slug of the university (default: mahindra)."
     )
     interactive_parser.add_argument(
         "--user-name", 

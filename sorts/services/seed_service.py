@@ -210,9 +210,8 @@ def seed_database(db: Session, seed_filepath: str) -> None:
 def ensure_qubit_club_seeded(db: Session) -> None:
     """Ensures Qubit Club exists in the database with appropriate trait mappings."""
     from sorts.database import models as db_models
-    from sorts.config.settings import DEFAULT_UNIVERSITY_SLUG
 
-    univ = db.query(db_models.University).filter_by(slug=DEFAULT_UNIVERSITY_SLUG).first()
+    univ = db.query(db_models.University).filter_by(slug="mahindra").first()
     if not univ:
         return
 
@@ -285,11 +284,10 @@ def ensure_qubit_club_seeded(db: Session) -> None:
 def sync_verified_clubs(db: Session) -> None:
     """Synchronizes the database with the verified club registry and merges duplicates."""
     from sorts.database import models as db_models
-    from sorts.config.settings import DEFAULT_UNIVERSITY_SLUG
 
-    univ = db.query(db_models.University).filter_by(slug=DEFAULT_UNIVERSITY_SLUG).first()
+    univ = db.query(db_models.University).filter_by(slug="mahindra").first()
     if not univ:
-        logger.warning(f"University '{DEFAULT_UNIVERSITY_SLUG}' not found during club sync.")
+        logger.warning("Mahindra University record not found during club sync.")
         return
 
     # 1. Merge duplicates by deleting redundant duplicate rows
@@ -383,9 +381,8 @@ def sync_verified_clubs(db: Session) -> None:
 def sync_verified_events(db: Session) -> None:
     """Synchronizes upcoming campus hackathons, workshops, and opportunities into the database."""
     from sorts.database import models as db_models
-    from sorts.config.settings import DEFAULT_UNIVERSITY_SLUG
 
-    univ = db.query(db_models.University).filter_by(slug=DEFAULT_UNIVERSITY_SLUG).first()
+    univ = db.query(db_models.University).filter_by(slug="mahindra").first()
     if not univ:
         return
 

@@ -8,16 +8,7 @@ from sorts.services.club_service import ClubService
 def test_db():
     init_db()
     with get_db() as db:
-        univ = db.query(db_models.University).filter_by(slug="mahindra").first()
-        if not univ:
-            univ = db_models.University(
-                slug="mahindra",
-                name="Mahindra University",
-                website="https://www.mahindrauniversity.edu.in",
-                description="Campus guide",
-            )
-            db.add(univ)
-            db.commit()
+        seed_database(db, "sorts/assets/data/mahindra_seed.json")
         sync_verified_clubs(db)
         yield db
 

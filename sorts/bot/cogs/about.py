@@ -12,7 +12,6 @@ class AboutCog(commands.Cog):
     async def about(self, interaction: nextcord.Interaction):
         """Displays the university profile and a short explanation of Sortling."""
         try:
-            await interaction.response.defer()
             with get_db() as db:
                 univ = get_guild_university(db, interaction.guild_id)
 

@@ -17,7 +17,6 @@ class University(Base):
     description = Column(Text, nullable=True)
     metadata_json = Column(Text, nullable=True, default="{}")
     guild_id = Column(String(50), nullable=True, unique=True, index=True)
-    reddit_subreddit = Column(String(100), nullable=True, unique=True, index=True)
 
     # Relationships
     sources = relationship("ImportSource", back_populates="university", cascade="all, delete-orphan")

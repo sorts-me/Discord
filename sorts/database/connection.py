@@ -6,13 +6,9 @@ from sorts.config import settings
 # Declare the declarative base for models
 Base = declarative_base()
 
-# Configure engine with postgresql URI scheme fix and pre-ping for Supabase resilience
-db_url = settings.DATABASE_URL
-if db_url.startswith("postgres://"):
-    db_url = db_url.replace("postgres://", "postgresql://", 1)
-
-connect_args = {"check_same_thread": False} if "sqlite" in db_url else {}
-engine = create_engine(db_url, connect_args=connect_args, pool_pre_ping=True)
+# Configure engine. For SQLite, check_same_thread=False allows multi-threaded Discord bot tasks to reuse connection safely.
+connect_args = {"check_same_thread": False} if "sqlite" in settings.DATABASE_URL else {}
+engine = create_engine(settings.DATABASE_URL, connect_args=connect_args)
 
 # Session local factory
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
@@ -62,13 +58,3 @@ def init_db():
                         conn.commit()
                     except Exception:
                         pass
-
-    if "universities" in inspector.get_table_names():
-        univ_cols = {col["name"] for col in inspector.get_columns("universities")}
-        if "reddit_subreddit" not in univ_cols:
-            with engine.connect() as conn:
-                try:
-                    conn.execute(text("ALTER TABLE universities ADD COLUMN reddit_subreddit VARCHAR(100)"))
-                    conn.commit()
-                except Exception:
-                    pass
