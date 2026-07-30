@@ -23,7 +23,7 @@ def handle_api_request(path: str, method: str, params: Dict[str, Any], body_data
                 clean_sub = sub.strip().lstrip("r/").lower()
                 all_univs = db.query(db_models.University).all()
                 univ = next(
-                    (u for u in all_univs if u.reddit_subreddit and u.reddit_subreddit.strip().lstrip("r/").lower() == clean_sub),
+                    (u for u in all_univs if getattr(u, "reddit_subreddit", None) and getattr(u, "reddit_subreddit", "").strip().lstrip("r/").lower() == clean_sub),
                     None,
                 )
             if not univ and slug:
@@ -45,7 +45,7 @@ def handle_api_request(path: str, method: str, params: Dict[str, Any], body_data
                 "name": univ.name,
                 "website": univ.website,
                 "description": univ.description,
-                "reddit_subreddit": univ.reddit_subreddit,
+                "reddit_subreddit": getattr(univ, "reddit_subreddit", None),
             }
 
         # 2. GET /api/clubs
